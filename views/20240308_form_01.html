@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 태그 - DEPT</title>
+    <style>
+        span{
+            font-size: x-large;
+        }
+        #n1text{
+            text-decoration-line: overline;
+        }
+        label{
+            color: chocolate;
+            cursor: grab;
+        }
+        input{
+            background-color: aqua;
+        }
+        .tc-red{
+            color: red;
+            font-style: italic;
+        }
+        .bg-blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>부서 추가</h1>
+    <form method="post" action="http://127.0.0.1:8080/home/dept/insert" target="_self">
+        <table>
+            <tr>
+                <td>
+                    <div><input type="checkbox">deptno: </div>
+                </td>
+                <td>
+                    <div><input type="text" name="deptno" placeholder="부서번호"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div><input type="checkbox">dname: </div>
+                </td>
+                <td>
+                    <div><input type="text" name="dname" placeholder="부서명"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div><input type="checkbox">loc: </div>
+                </td>
+                <td>
+                    <div><input type="text" name="loc" placeholder="장소"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" value="확인">
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <h1>부서 삭제</h1>
+    <form method="post" action="http://127.0.0.1:8080/home/dept/delete" target="_self">
+
+    </form>
+    <a href="#n5s">축구</a>
+    <h1 class="tc-red bg-blue">input type 종류별</h1>
+    <span>http://192.168.10.11:5500/views/20240308_form_01.html?n1=a&n2=234&n3=&n5=on&n6=09.+%ED%8F%BC+%EA%B4%80%EB%A0%A8+%ED%83%9C%EA%B7%B8.pdf&n7=on&n8=%EC%A0%9C%EC%B6%9C#</span>
+    <form method="get" action="#" autocomplete="off" >
+        <div>
+            <label for="n1text">text</label>
+            <input type="text" name="n1" id="n1text" class="input1 text1">
+            <span><- 입력값이 곧 value</span>
+        </div>
+        <div>
+            <label for="n2password">password</label>
+            <input type="password" name="n2" id="n2password">
+            <span><- 입력값이 곧 value</span>
+        </div>
+        <div>
+            <span>hidden</span>
+            <input type="hidden" name="n3" value="필수v3">
+            <span><- 옮겨야 되지만 사용자가 접근 못하게 하고 싶은 값들</span>
+        </div>
+        <div>
+            <span>button</span>
+            <input type="button" value="버튼">
+            <span><- 데이터 전송 용도가 아님, 평소에 보는 버튼은 checkbox나 radio에 버튼을 입힌 것, name 쓸 필요 X, value 필요 O</span>
+        </div>
+        <div>
+            <span>checkbox</span>
+            <div>String[] n5 = request.getParameterValues("n5");</div>
+            <div>
+                <label for="n5s">축구:</label><input type="checkbox" name="n5" value="s" checked="checked" id="n5s">
+                <label for="n5v">배구:</label><input type="checkbox" name="n5" value="v" checked="checked" id="n5v">
+                <label for="n5b">야구:</label><input type="checkbox" name="n5" value="b" id="n5b">
+            </div>
+            <div>
+                <span>Java:</span><input type="checkbox" name="n10" value="j" checked="checked">
+                <span>HTML:</span><input type="checkbox" name="n10" value="h" checked="checked">
+                <span>JDBC:</span><input type="checkbox" name="n10" value="d" checked="checked">
+            </div>
+        </div>
+        <div>
+            <span>file</span>
+            <input type="file" name="n6">
+            <span><- value는 파일 선택하면 생김</span>
+        </div>
+        <div>
+            <span>radio</span>
+            <div>
+                <span>Java:</span><input type="radio" name="n7" value="j" checked>
+                <span>HTML:</span><input type="radio" name="n7" value="h">
+            </div>
+            <div>
+                <span>CSS:</span><input type="radio" name="n11" value="c">
+                <span>JS:</span><input type="radio" name="n11" value="s" checked>
+                <span>Oracle:</span><input type="radio" name="n11" value="o">
+            </div>
+            <span><- 같은 name 안에서 한 개만 선택 가능, name 속성값으로 grouping</span>
+        </div>
+        <div>
+            <span>submit</span>
+            <input type="submit" name="n8" value="value, 기본값은 제출">
+            <span> <- 다른 항목 모두 입력하고 마지막에 눌러 form 전체에 영향, name 필요 X</span>
+        </div>
+        <div>
+            <span>reset</span>
+            <input type="reset" name="n9">
+        </div>
+    </form>
+
+</body>
+
+</html>

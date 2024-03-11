@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>웹페이지</title>
+</head>
+
+<body>
+    <h1>하이퍼링크 태그</h1>
+    <a href="http://www.kh-academy.co.kr" target="_blank">링크 - 외부</a><br>
+    <a href="/views/new_page.html"><사이트 목록></a><br>
+    <div><a href="#page1">링크 - 페이지내부</a></div>
+
+    <h1>표 태그도 좀 중요</h1>
+    <span>inline영역 대표 주자</span>
+    <span>inline영역 대표 주자</span>
+    <span>inline영역 대표 주자</span>
+    <span>inline영역 대표 주자</span>
+    <div>block영역 대표 주자</div>
+    <div>block영역 대표 주자</div>
+    <div>block영역 대표 주자
+        
+    </div>
+    <table border="1" align="center">
+        <tr>
+            <td bgcolor="yellow" colspan="2">내용1</td>
+            <td bgcolor="cyan" rowspan="3">내용3</td>
+            <td bgcolor="red">내용4</td>
+        </tr>
+        <tr>
+            <td bgcolor="green">내용5</td>
+            <td bgcolor="gray">내용6</td>
+            <td>내용8</td>
+        </tr>
+        <tr>
+            <td>내용9</td>
+            <td>내용10</td>
+            <td>내용12</td>
+        </tr>
+    </table>
+    <h1>목록 태그는 나열식 - 메뉴 등 쓰임이 많음</h1>
+    <ul>
+        <li>메뉴1</li>
+        <li>
+            <span>메뉴2 Span</span>
+            <!-- <div> 안 쓰면 element가 아님 -->
+            <ul>
+                <li>내용2</li>
+                <li>내용3</li>
+            </ul>
+        </li>
+    </ul>
+    <ol type="A" start="996" id="page1">
+        <li>내용1</li>
+        <li>내용2</li>
+        <li>내용3</li>
+        <li>내용1</li>
+        <li>내용2</li>
+        <li>내용3</li>
+        <li>내용1</li>
+        <li>내용2</li>
+        <li>내용3</li>
+        <dd>
+        <dd>내용1</dd>
+        <dd>내용2</dd>
+        <dd>내용3</dd>
+        </dd>
+    </ol>
+    <dl>
+        <dt>제목</dt>
+        <dd>내용</dd>
+        <dd>내용</dd>
+    </dl>
+    <p><strong><small><sup><em>테스트</em></sup></small></strong></p>
+    <h1><sub><mark>제</mark></sub><mark>목</mark><sup><mark>H</mark></sup><mark>1</mark></h1>
+    <h2>제목H2</h2>
+    <h3>제목H3</h3>
+    <h4>제목H4</h4>
+    <h5>제목H5</h5>
+    <h6>제목H6</h6>
+    <h1>
+        <!-- ctrl + / 으로 주석 -->
+        <u>안녕하세요. 반갑습니다.</u>
+        <p>html 처음입니다.
+            <hr>
+        </p>
+
+        첫 코드입니다.<br>
+
+        live server startup -> alt + L - O
+    </h1>
+    <figure id="page2">
+        <figcaption>표1</figcaption>
+        <table border="5">
+            <caption>2*2 표</caption>
+            <thead>
+                <tr>
+                    <td>0,0</td>
+                    <td>0,1</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>1,0</th>
+                    <th>1,1</th>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>2,0</td>
+                    <td>2,1</td>
+                </tr>
+            </tfoot>
+        </table>
+        <figcaption>표2</figcaption>
+    </figure>
+</body>
+
+</html>
