@@ -1,0 +1,32 @@
+/* 
+@import url(./reset.css);
+ */
+span {
+    font-size: x-large;
+}
+
+#n1text {
+    text-decoration-line: overline;
+}
+
+label {
+    color: chocolate;
+    cursor: grab;
+}
+
+input {
+    background-color: aqua;
+}
+
+.tc-red {
+    color: red;
+    font-style: italic;
+}
+
+.bg-blue {
+    background-color: blue;
+}
+
+h1{
+    color: yellowgreen;
+}

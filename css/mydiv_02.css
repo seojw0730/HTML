@@ -1,0 +1,120 @@
+/* layout */
+body {
+    background-color: aquamarine;
+    border: 1px solid black;
+}
+
+div.wrap {
+    border: 1px solid black;
+    width: 960px;
+    margin: 0 auto;
+    /*     
+    자식 태그에 따로 부여
+    */
+}
+
+header {
+    /* layout - 01
+    전체화면 중 가운데 정렬
+    width 지정
+    margin: 0 auto;
+    */
+    width: 960px;
+    margin: 0 auto;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.wrap>.wrap-nav {
+    background-color: cadetblue;
+    border: 1px solid black;
+}
+
+.wrap>.wrap-nav>nav {
+    width: 960px;
+    margin: 0 auto;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.wrap-content {
+    width: 960px;
+    margin: 0 auto;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+section {
+    /* 
+    layout - 03
+    display:block이지만 수평나누기.
+    width 지정
+    display: inline-block;
+     */
+    width: 80%;
+    display: inline-block;
+    /* 
+    inline-block은 ul, li에 많이 사용
+     */
+    background-color: azure;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+article {
+    border: 1px solid black;
+}
+
+aside {
+    /* layout - 03
+    display:block이지만 수평나누기.
+    width 지정
+    display: inline-block; */
+    width: 15%;
+    display: inline-block;
+    /* height: 98px; */
+    background-color: bisque;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+footer {
+    /* layout - 03
+    display:block이지만 수평나누기.
+    footer 단독 ->
+    clear: both; = 정렬 해제
+    height 지정하면 망길 */
+    border: 1px solid black;
+    width: 960px;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.wrap-nav>nav>ul>li,
+footer>nav>ul>li {
+    display: inline-block;
+    padding: 0 10px;
+    margin: 10px;
+}
+
+.wrap>.wrap-main {
+    margin-bottom: 10px;
+}
+
+/* font size */
+.fs-1 {
+    font-size: 24px;
+}
+
+.fs-2 {
+    font-size: 18px;
+}
+
+.fs-3 {
+    font-size: 16px;
+}
+
+.fs-4 {
+    font-size: 14px;
+}

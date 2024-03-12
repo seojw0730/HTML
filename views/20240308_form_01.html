@@ -6,31 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>폼 태그 - DEPT</title>
     <style>
-        span{
-            font-size: x-large;
-        }
-        #n1text{
-            text-decoration-line: overline;
-        }
-        label{
-            color: chocolate;
-            cursor: grab;
-        }
-        input{
-            background-color: aqua;
-        }
-        .tc-red{
-            color: red;
-            font-style: italic;
-        }
-        .bg-blue{
-            background-color: blue;
+        @import url(../css/my.css);
+        h1, h2, #idh3, .classh4, form > div >input{
+            color: violet;
         }
     </style>
+<!--     
+    <link href="../css/my.css" rel="stylesheet">
+     -->
 </head>
 
 <body>
-    <h1>부서 추가</h1>
+    <h1 style="color: blueviolet;">부서 추가</h1>
+    <h2>h2</h2>
+    <h3 id="idh3">h3</h3>
+    <h4 class="classh4">h4</h4>
     <form method="post" action="http://127.0.0.1:8080/home/dept/insert" target="_self">
         <table>
             <tr>
