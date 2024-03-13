@@ -12,22 +12,41 @@ header div.logo{
     clear: both;
 }
 header{
-    /* 자식들의 기준점 */
-    position: relative;
-    height: 190px;
+    /* position: absolute 자식들의 기준점 */
+    position: relative; height: 150px;
 }
 header .tnb{
-    position: absolute;
-    right: 0;
-    top: 0;
+    /* position: absolute 배치 */
+    position: absolute; right: 0; top: 0;
 }
 header .bnb{
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    /* position: absolute 배치 */
+    position: absolute; right: 0; bottom: 0;
 }
 header .logo{
-    position: absolute;
-    left: 50px;
-    top: 55px;
+    /* position: absolute 배치 */
+    position: absolute; left: 50px; top: 55px;
+}
+
+/* li-a 링크 padding, background, border */
+header a{
+    display: inline-block;
+    border: 1px solid black;
+}
+
+header a:hover{
+    background-color: black;
+    color: whitesmoke;
+}
+header li:first-child > a{
+    border-radius: 15px 0 0 15px;
+}
+header li:last-child > a{
+    border-radius: 0 15px 15px 0;
+}
+header .tnb a{
+    padding: 5px 10px;
+}
+header .bnb a{
+    padding: 10px 15px;
 }
