@@ -219,3 +219,37 @@ footer {
     margin: 0 auto;
     padding: 10px 0;
 }
+
+input[type=radio]{
+    /* 공간차지없이 없는 요소 */
+    display: none;
+
+    /* 공간차지하면서 안 보이는 요소 */
+    /* visibility: hidden; */
+}
+input[type=radio]:nth-of-type(1):checked
+~ div:nth-of-type(1)
+{
+    display: block;
+}
+input[type=radio]:nth-of-type(1):checked
+~ div:nth-of-type(2)
+{
+    display: none;
+}
+input[type=radio]:nth-of-type(2):checked
+~ div:nth-of-type(2)
+{
+    display: block;
+}
+input[type=radio]:nth-of-type(2):checked
+~ div:nth-of-type(1)
+{
+    display: none;
+}
+.tab-item>ul>li:nth-child(2n+1){
+    background-color: #eee;
+}
+.tab-item>ul>li:nth-child(2n){
+    background-color: #ccc;
+}
