@@ -40,6 +40,7 @@ header {
     /* margin */
     /* margin-bottom: 10px; */
     padding-bottom: 10px;
+    padding-top: 10px;
 
     /* position - 기준점 - 자식 absolute 있다면 */
     position: relative;
@@ -92,6 +93,33 @@ aside {
     box-sizing: border-box;
 }
 
+
+.tab-item>ul>li>a>div:first-child{
+    /*  */
+    float: left;
+    width: 45px;
+    margin-right: 10px;
+}
+
+.tab-item>ul>li>a>div:last-child{
+    float: right;
+    width: 120px;
+}
+
+
+
+.tab-item>ul>li{
+    padding: 10px;
+    clear: both;
+}
+.tab-item>ul>li>{
+    overflow: hidden;
+}
+
+
+
+
+
 article {
     /* 테두리 */
     border: 1px solid black;
@@ -105,7 +133,7 @@ article:last-child {
     margin-bottom: 0;
 }
 
-ul {
+nav>ul {
     /* float 의 부모노드 overflow: hidden */
     overflow: hidden;
 }
@@ -151,7 +179,7 @@ nav.bnb,
     clear: both;
 }
 
-a {
+nav a {
     display: inline-block;
     padding: 10px;
     text-decoration: none;
@@ -170,7 +198,7 @@ a:active {
     color: red;
 } */
 
-a:hover {
+nav a:hover {
     color: white;
     background-color: black;
 }
