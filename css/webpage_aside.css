@@ -3,15 +3,26 @@ aside ul > li{
     clear: both;
     /* float 부모 */
     overflow: hidden;
+
+    padding: 10px;
+
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+aside ul > li:last-child{
+    border-bottom: 1px solid black;
 }
 aside ul > li > a > div:first-child{
     /* float 설정 */
     width: 45px; float: left;
+    margin-right: 10px;
 }
 aside ul > li > a > div:last-child{
     /* float 설정 */
     width: 120px; float: left;
 }
+/* radio 보였다 안보였다 */
 aside input[type=radio]{
     display: none;
 }
