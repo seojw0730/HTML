@@ -4,10 +4,6 @@ body {
     font-size: 1.1em;
     line-height: 1.2em;
 }
-.nanum-pen {
-    font-family: "Nanum Pen Script", cursive;
-    font-style: normal;
-}
 h1 {
     font-weight: 900;
     font-size: 1.28em;
@@ -17,6 +13,10 @@ h3 {
     font-weight: 900;
     font-size: 1em;
     line-height: 1.1em;
+}
+.nanum-pen {
+    font-family: "Nanum Pen Script", cursive;
+    font-style: normal;
 }
 
 /* a 링크 */
@@ -36,11 +36,3 @@ a:visited {
 a:active {
     color: red;
 } */
-
-/* ul li - 옆으로 나란히 */
-ul > li{
-    /* float 해제 */
-    clear: both;
-    /* float 부모 */
-    overflow: hidden;
-}
