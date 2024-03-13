@@ -6,6 +6,9 @@ aside ul > li{
 
     padding: 10px;
 }
+aside #n1{
+    float: left;
+}
 aside ul > li > a > div:first-child{
     /* float 설정 */
     width: 45px; float: left;
