@@ -1,0 +1,136 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.1em;
+    line-height: 1.2em;
+}
+
+.nanum-pen {
+    font-family: "Nanum Pen Script", cursive;
+    font-style: normal;
+}
+
+header {
+    width: 960px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+
+    position: relative;
+    height: 160px;
+}
+
+header nav.tnb {
+    position: absolute;
+    right: 0;
+}
+
+header nav.bnb {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+header div.logo {
+    position: absolute;
+    left: 50px;
+    top: 55px;
+}
+
+.wrap-header {
+    background-color: antiquewhite;
+}
+
+.wrap-main {
+    overflow: hidden;
+    background-color: aquamarine;
+    width: 960px;
+    margin: 0 auto;
+}
+
+section {
+    float: left;
+    width: 750px;
+}
+
+article {
+    border: 1px solid black;
+
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+article:last-child {
+    margin-bottom: 0;
+}
+
+ul {
+    overflow: hidden;
+}
+
+ul>li {
+    float: left;
+    /* border: 1px solid black; */
+}
+
+nav>ul>li>a {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+nav>ul>li:last-child {
+    border-right: 1px solid black;
+}
+
+nav.tnb>ul>li:first-child>a {
+    border-radius: 15px 0 0 15px;
+}
+
+nav.tnb>ul>li:last-child {
+    border-radius: 15px 0 0 15px;
+}
+
+nav.tnb>ul>li:last-child>a {
+    border-radius: 0 15px 15px 0;
+}
+
+nav.tnb>ul>li:last-child {
+    border-radius: 0 15px 15px 0;
+}
+
+nav.bnb>ul>li:first-child>a {
+    border-radius: 5px 0 0 5px;
+}
+
+nav.bnb>ul>li:last-child {
+    border-radius: 5px 0 0 5px;
+}
+
+nav.bnb>ul>li:last-child>a {
+    border-radius: 0 5px 5px 0;
+}
+
+nav.bnb>ul>li:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+
+nav.bnb, .logo {
+    clear: both;
+}
+
+aside {
+    float: right;
+    width: 200px;
+    border: 1px solid black;
+}
+
+.wrap-footer {
+    clear: both;
+}
+
+a {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
