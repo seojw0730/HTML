@@ -8,20 +8,29 @@ section article.article-1 div.flex-3{
     /* grid는 여백 남음 */
     flex-wrap: wrap;
     /* flex-direction: column; */
-    gap: 5px 10px;
+    gap: 50px;
 }
 section article.article-1 div.flex-3 > div{
-    /* flex 자식의 최대 크기 */
-    width: 30%;
     border: 1px solid black;
+    box-sizing: border-box;
+}
+section article.article-1 div.flex-3.inputform{
+    flex-wrap: wrap;
+}
+section article.article-1 div.flex-3.inputform > div{
+    /* flex 자식의 최대 크기 */
+    width: 45%;
 }
 section article.article-2 div.grid-3{
     display: grid;
-    grid-template-columns: 1fr 100px 1fr ;
+    grid-template-columns: 1fr 2fr 1fr ;
     row-gap: 10px;
     column-gap: 20px;
 }
+section article.article-2 div.grid-3:first-of-type{
+    margin-bottom: 5px;
+}
 section article.article-2 div.grid-3 > div{
-    margin: 10px;
+    margin: 5px 10px;
     border: 1px solid black;
 }

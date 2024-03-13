@@ -36,7 +36,6 @@ header a{
     display: inline-block;
     border: 1px solid black;
 }
-header 
 header a:hover{
     background-color: black;
     color: whitesmoke;

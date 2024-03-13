@@ -19,6 +19,27 @@ aside ul > li > a > div:last-child{
     width: 120px; float: left;
 }
 /* radio 보였다 안보였다 */
+aside > label{
+    cursor: pointer;
+    float: left; width: 50%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px 0 ;
+}
+aside > label:first-of-type{
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 15px 0 0 0;
+}
+aside > label:last-of-type{
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 0 15px 0 0;
+}
+aside nav > ul > li{
+    width: 100px; float: left;
+}
 aside input[type=radio]{
     display: none;
 }
@@ -32,6 +53,11 @@ aside input[type=radio]:nth-of-type(1):checked
 {
     display: none;
 }
+aside input[type=radio]:nth-of-type(1):checked
+~ label:first-of-type{
+    background-color: whitesmoke;
+    color: black;
+}
 aside input[type=radio]:nth-of-type(2):checked
 ~ div:nth-of-type(2)
 {
@@ -41,6 +67,11 @@ aside input[type=radio]:nth-of-type(2):checked
 ~ div:nth-of-type(1)
 {
     display: none;
+}
+aside input[type=radio]:nth-of-type(2):checked
+~ label:last-of-type{
+    background-color: whitesmoke;
+    color: black;
 }
 /* border - 중복선 제거 */
 aside ul > li{
