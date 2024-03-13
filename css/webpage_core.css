@@ -36,3 +36,11 @@ a:visited {
 a:active {
     color: red;
 } */
+
+/* ul li - 옆으로 나란히 */
+ul > li{
+    /* float 해제 */
+    clear: both;
+    /* float 부모 */
+    overflow: hidden;
+}
