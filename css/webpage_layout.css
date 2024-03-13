@@ -1,0 +1,36 @@
+/*  */
+.wrap-header{
+    background-color: aliceblue;
+}
+.wrap-header > header{
+    /* 중앙 정렬 */
+    width: 960px;
+    margin: 0 auto;
+}
+/*  */
+.wrap-footer{
+    background-color: beige;
+    /* float 배치 해제 */
+    clear: both;
+}
+.wrap-footer > footer{
+    /* 중앙 정렬 */
+    width: 960px;
+    margin: 0 auto;
+}
+/*  */
+.wrap-main{
+    background-color: aquamarine;
+    /* 중앙 배치 */
+    width: 960px; margin: 0 auto;
+}
+.wrap-main > section{
+    /* float 왼쪽 배치 */
+    width: 750px;
+    float: left;
+}
+.wrap-main > aside{
+    /* float 왼쪽 배치 */
+    width: 200px;
+    float: right;
+}
