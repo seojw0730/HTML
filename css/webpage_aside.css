@@ -71,7 +71,7 @@ aside input[type=radio]:nth-of-type(2):checked
 aside input[type=radio]:nth-of-type(2):checked
 ~ label:last-of-type{
     background-color: whitesmoke;
-    color: black;
+    color: violet;
 }
 /* border - 중복선 제거 */
 aside ul > li{
