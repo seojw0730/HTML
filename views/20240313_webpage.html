@@ -85,6 +85,20 @@
                 width: 600px; margin: 0 auto;
             }
         }
+        article .c-ellipsis{
+            width: 200px;
+            border: 1px solid black;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: auto;
+        }
+        article .c-clip{
+            width: 100px;
+            border: 1px solid black;
+            /* text-overflow: clip; */
+            white-space: nowrap;
+            overflow: auto;
+        }
     </style>
 </head>
 
@@ -118,6 +132,66 @@
         </div>
         <div class="wrap-main">
             <section>
+                <article>
+                    <div class="c-ellipsis">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem eligendi voluptatum possimus iusto laborum quam voluptates unde eaque illum deserunt, sapiente quasi cupiditate fugit omnis tempora quas blanditiis voluptatem incidunt!
+                    </div>
+                    <div class="c-clip">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem eligendi voluptatum possimus iusto laborum quam voluptates unde eaque illum deserunt, sapiente quasi cupiditate fugit omnis tempora quas blanditiis voluptatem incidunt!
+                    </div>
+                </article>
+                <article>
+                    <form method="get" action="#">
+                        <div>
+                            <input type="color" name="color">
+                        </div>
+                        <div>
+                            <input type="date" name="date">
+                        </div>
+                        <div>
+                            <select name="select">
+                                <optgroup label="과일">
+                                    <option value="f01">바나나</option>
+                                    <option value="f02">딸기</option>
+                                    <option value="f03">수박</option>
+                                </optgroup>
+                                <!-- radio 비슷 -->
+                                <optgroup label="작물">
+                                    <option value="f01">바나나</option>
+                                    <option value="f02">딸기</option>
+                                    <option value="f03">수박</option>
+                                </optgroup>
+                            </select>
+                            <!-- ?color=%23306688&date=2024-03-05&select=banana# -->
+                            <!-- ?color=%23b01c1c&date=2024-03-11&select=f01# -->
+                            <!-- ?color=%23381a1a&date=2024-03-02&select=f01&select=f02&select=f03# -->
+                        </div>
+                        <div>
+                            <!-- datalist의 위치는 화면 출력과 무관 -->
+                            <datalist id="datalist">
+                                <option value="f01" label="banana">바나나</option>
+                                <option value="f02">딸기</option>
+                                <option value="f03">수박</option>
+                            </datalist>
+                            <input type="text" list="datalist" name="n3">
+                            <!-- ?color=%23000000&date=2024-03-04&select=f01# -->
+                        </div>
+                        <div>
+                            <input type="submit" value="제출">
+                            <button type="button" value="버튼">
+                                <img src="/images/DMR_120.jpg" width="20em">
+                            </button>
+                            <button type="submit" value="제출">제출</button>
+                        </div>
+                        <div>
+                            id:<input type="text" name="id" required autofocus>
+                            pwd:<input type="password" name="pwd">
+                        </div>
+                        <div>
+                            <a href="#">호</a>버
+                        </div>
+                    </form>
+                </article>
                 <article class="article-1">
                     <h1>Flexbox</h1>
                     <div class="flex-3 menubar">
@@ -186,11 +260,13 @@
                         <div>
                             <div class="flex-card-item">
                                 <div>
-                                    <img src="https://dummyimage.com/145/ccc/000.png">
+                                    <img class="fullsizeimg" src="https://dummyimage.com/1920x1080/ccc/000.png">
                                 </div>
                                 <div class="flex-icons">
                                     <div>
-                                        보호중
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
                                     </div>
                                     <div>
                                         하트
@@ -210,32 +286,118 @@
                             </div>
                         </div>
                         <div>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam id, aliquid dolores ipsa
-                            error
-                            ipsum blanditiis at, totam ex quas, obcaecati ratione repellat laboriosam! Nemo
-                            necessitatibus sit
-                            dignissimos neque exercitationem?
+                            <div class="flex-card-item">
+                                <div>
+                                    <img class="fullsizeimg" src="https://dummyimage.com/1920x1080/ccc/000.png">
+                                </div>
+                                <div class="flex-icons">
+                                    <div>
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                    </div>
+                                    <div>
+                                        하트
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="#">
+                                        [강아지] 보더 콜리
+                                    </a>
+                                </div>
+                                <div>
+                                    남아 - 중성화 미완료 - 3살
+                                </div>
+                                <div>
+                                    지역 : 광주광역시 북구
+                                </div>
+                            </div>
                         </div>
                         <div>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam id, aliquid dolores ipsa
-                            error
-                            ipsum blanditiis at, totam ex quas, obcaecati ratione repellat laboriosam! Nemo
-                            necessitatibus sit
-                            dignissimos neque exercitationem?
+                            <div class="flex-card-item">
+                                <div>
+                                    <img class="fullsizeimg" src="https://dummyimage.com/1920x1080/ccc/000.png">
+                                </div>
+                                <div class="flex-icons">
+                                    <div>
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                    </div>
+                                    <div>
+                                        하트
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="#">
+                                        [강아지] 보더 콜리
+                                    </a>
+                                </div>
+                                <div>
+                                    남아 - 중성화 미완료 - 3살
+                                </div>
+                                <div>
+                                    지역 : 광주광역시 북구
+                                </div>
+                            </div>
                         </div>
                         <div>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam id, aliquid dolores ipsa
-                            error
-                            ipsum blanditiis at, totam ex quas, obcaecati ratione repellat laboriosam! Nemo
-                            necessitatibus sit
-                            dignissimos neque exercitationem?
+                            <div class="flex-card-item">
+                                <div>
+                                    <img class="fullsizeimg" src="https://dummyimage.com/1920x1080/ccc/000.png">
+                                </div>
+                                <div class="flex-icons">
+                                    <div>
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                    </div>
+                                    <div>
+                                        하트
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="#">
+                                        [강아지] 보더 콜리
+                                    </a>
+                                </div>
+                                <div>
+                                    남아 - 중성화 미완료 - 3살
+                                </div>
+                                <div>
+                                    지역 : 광주광역시 북구
+                                </div>
+                            </div>
                         </div>
                         <div>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam id, aliquid dolores ipsa
-                            error
-                            ipsum blanditiis at, totam ex quas, obcaecati ratione repellat laboriosam! Nemo
-                            necessitatibus sit
-                            dignissimos neque exercitationem?
+                            <div class="flex-card-item">
+                                <div>
+                                    <img class="fullsizeimg" src="https://dummyimage.com/1920x1080/ccc/000.png">
+                                </div>
+                                <div class="flex-icons">
+                                    <div>
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                        <img src="https://dummyimage.com/15/ccc/000.png">
+                                    </div>
+                                    <div>
+                                        <a href="#">
+                                            <img src="https://dummyimage.com/15/ccc/000.png">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="#">
+                                        [강아지] 보더 콜리
+                                    </a>
+                                </div>
+                                <div>
+                                    남아 - 중성화 미완료 - 3살
+                                </div>
+                                <div>
+                                    지역 : 광주광역시 북구
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </article>
