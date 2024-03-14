@@ -25,7 +25,7 @@ header .bnb{
 }
 header .logo{
     /* position: absolute 배치 */
-    position: absolute; left: 50px; top: 41px;
+    position: absolute; left: 50px; top: 37px;
 
     background-color: antiquewhite;
     padding: 10px;
@@ -33,6 +33,7 @@ header .logo{
 
 /* li-a 링크 padding, background, border */
 header a{
+    /* a 원래 inline -> width, height, padding, margin 먹이기 위해 inline-block */
     display: inline-block;
     border: 1px solid black;
 }
