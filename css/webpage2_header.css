@@ -1,0 +1,53 @@
+header ul > li {
+    float: left;
+}
+header ul {
+    clear: both;
+}
+header {
+    height: 150px;
+    position: relative;
+}
+header a:hover {
+    background-color: black;
+    color: whitesmoke;
+}
+header .tnb {
+    position: absolute; top: 0; right: 0;
+}
+header .tnb > ul > li {
+    border: 1px solid black;
+}
+header .tnb > ul > li:first-child {
+    border-radius: 10px 0 0 10px;
+}
+header .tnb > ul > li:last-child {
+    border-radius: 0 10px 10px 0;
+}
+header .tnb > ul > li:first-child > a {
+    border-radius: 10px 0 0 10px;
+}
+header .tnb > ul > li:last-child > a {
+    border-radius: 0 10px 10px 0;
+}
+header .bnb {
+    position: absolute; bottom: 0; right: 0;
+}
+header .bnb > ul > li {
+    border: 1px solid black;
+}
+header .bnb > ul > li:first-child {
+    border-radius: 10px 0 0 10px;
+}
+header .bnb > ul > li:last-child {
+    border-radius: 0 10px 10px 0;
+}
+header .bnb > ul > li:first-child > a {
+    border-radius: 10px 0 0 10px;
+}
+header .bnb > ul > li:last-child > a {
+    border-radius: 0 10px 10px 0;
+}
+header .logo {
+    position: absolute; top: 50px; left: 50px;
+}
