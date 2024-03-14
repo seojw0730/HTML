@@ -2,6 +2,7 @@ section article{
     border: 1px solid black;
     padding: 10px;
     margin-bottom: 10px;
+    overflow: scroll;
 }
 section article.article-1 div.flex-3{
     display: flex;
