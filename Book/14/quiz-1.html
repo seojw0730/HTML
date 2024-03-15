@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1,
+        h3 {
+            text-align: center;
+        }
+
+        h3 {
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="board">
+        <h1>4의 배수일까 아닐까</h1>
+        <h3 class="answer"></h3>
+    </div>
+    <script>
+        let answer = prompt();
+        console.log(answer);
+        if ((answer == null) || (answer == "")) {
+            document.getElementsByClassName("board")[0].innerHTML = null;
+        } else if (answer % 4 == 0) {
+            document.getElementsByClassName("answer")[0].innerHTML = answer + "는 4의 배수입니다.";
+        } else {
+            document.getElementsByClassName("answer")[0].innerHTML = answer + "는 4의 배수가 아닙니다.";
+        }
+    </script>
+</body>
+
+</html>

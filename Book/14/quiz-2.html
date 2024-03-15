@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1,
+        h3 {
+            text-align: center;
+        }
+
+        .explain {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="document">
+        <div>
+            <h1>3의 배수 찾기</h1>
+        </div>
+        <div>
+            <h3 class="numbers"></h3>
+        </div>
+        <div>
+            <h3 class="explain"></h3>
+        </div>
+    </div>
+    <script>
+        let answer = prompt();
+        let n = 0;
+
+        if ((answer == null) || (answer == "")) {
+            document.getElementsByClassName("document")[0].innerHTML = null;
+        } else {
+            for (var i = 1; i <= answer; i++) {
+                if (i % 3 == 0) {
+                    document.getElementsByClassName("numbers")[0].innerHTML += i + ", ";
+                    n++;
+                }
+            }
+            document.getElementsByClassName("explain")[0].innerHTML = answer + "까지의 3의 배수의 개수 : " + n;
+        }
+    </script>
+</body>
+
+</html>
