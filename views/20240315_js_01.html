@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <script>
+        // 디버깅 용도
+        document.write("head write");
+        // 화면 공백에서 뿌려짐
+        // 화면 보여지는 상태로 뿌리려면 ajax(비동기 방식)
+        // window.alert("head alert");
+    </script>
+</head>
+
+<body>
+    <h1 id="id2">JavaScript 처음</h1>
+    <h1 class="c2">JavaScript 처음</h1>
+    <h1 class="c2">JavaScript 처음</h1>
+    <script>
+        // object 집중
+        var a15 = { k1: 1, k2: "s" }
+        console.log(a15)
+        a15.k3 = "new key into a15"
+        console.log(a15)
+        a15.k2 = null
+        console.log(a15)
+
+        a16 = "a16은 앞에 window. 생략, window에 기존 key:a16 이 없다면 생성, 있었다면 값 변경"
+        console.log(typeof a16)
+
+        // alert("window객체의 alert라는 함수 호출");
+        // true, 2.23, "abc", null, 선언만
+        var a2
+        console.log(typeof (window))
+        console.log(typeof a2)
+        console.log(typeof (a2))
+        var a3 = {
+            k1: 123, k2: "456", k3: null, score: { kor: 100, math: 100, eng: 100 }, a5: function (a, b) {
+                console.log("function 형태 a5의 값");
+                console.log("변수명 a5이 function명이 됩니다.");
+                console.log(a * b);
+                return a3.k2;
+            }
+        };
+        console.log(a3);
+        console.log(typeof a3.k1);
+        console.log(typeof a3.k2);
+        console.log(typeof a3.k3);
+        // 코드 자체 출력
+        console.log(a3.a5);
+        // 함수 실행 후 return값 출력
+        console.log(a3.a5(1, 2));
+        console.log(a3.score.math);
+
+        // 함수 정의
+        var a4 = function (a5, a6) {
+            console.log("a4==========");
+            console.log("function 형태 변수 선언");
+            console.log("변수명이 function명이 됩니다.");
+            console.log(a5 * a6);
+            return a5;
+        };
+        console.log(typeof (a4));
+        console.log(a4);
+        // 함수 실행
+        a4(41, 20);
+        // return 값
+        console.log(a4(41, 20));
+
+        function a5(a, b) {
+            console.log("a5==========");
+            console.log("function 정의");
+            console.log("자바와 동일한 위치에 함수명이 있습니다.");
+            console.log(a / b);
+            return 1;
+        }
+        a5(10, 3);
+
+        var id2 = document.getElementById("id2");
+        console.log(id2);
+        var c21 = document.getElementsByClassName("c2");
+        console.log(c21);
+        var t1 = document.getElementsByTagName("h1");
+        console.log(t1);
+        var qs1 = document.querySelectorAll(".c2");
+        console.log(qs1[0]);
+    </script>
+    <script>
+        document.write("body write");
+        // window.alert("body alert");
+        document.getElementsByTagName("h1")[0].innerHTML = "<a href='#'>링크</a>";
+        // document.getElementsByTagName("h1")[0].innerText = "문자만";
+    </script>
+    <script>
+        // var a1 = window.prompt("번호는?");
+        // document.getElementsByTagName("h1")[1].innerHTML = a1;
+        // console.log(a1);
+        // var cfm = window.confirm("계속?");
+        // console.log(cfm);
+    </script>
+</body>
+<script>
+    document.write("html write");
+    // window.alert("html alert");
+</script>
+
+</html>
