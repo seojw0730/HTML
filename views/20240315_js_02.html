@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <h1 id="id2">JavaScript 처음</h1>
+    <h1 class="c2">JavaScript 처음</h1>
+    <h1 class="c2">JavaScript 처음</h1>
+    <script>
+        // f1();
+        // console.log(a4);
+
+        for(var i = 0; i < 8; i++){
+            for(var j = 0; j < 9; j++){
+                console.log((i+2) + " X " + (j+1) + " = " + (i+2)*(j+1))
+            }
+        }
+
+        var a1 = 1; // 전역
+        console.log("이곳 1 a1:" + a1);
+        console.log("이곳 1 a2:" + a2);
+        // console.log("이곳 1 a3:" + a3); 오류 나면 해당 script에서 그 다음 줄부터는 실행 X, 함수 안 정보는 저장?
+        if(a2 == undefined){
+            console.log("지역 변수?");
+        }
+
+        // 이곳 2 수행 X, a2 인지 O
+        {
+            var a2 = 2; // 전역
+            console.log("이곳 2 a1:" + a1);
+            console.log("이곳 2 a2:" + a2);
+            // console.log("이곳 2 a3:" + a3);
+        }
+
+        // 이곳 3 
+        function f1(){
+            var a3 = 3; // 지역
+            a4 = 4; // 전역 but 함수 호출해야 선언됨
+            console.log("이곳 3 a1:" + a1);
+            console.log("이곳 3 a2:" + a2);
+            console.log("이곳 3 a3:" + a3);
+            window.f2 = function(){
+                console.log("이건 되나");
+            }
+        }
+    </script>
+    <h1>변수 var 영역</h1>
+    <script>
+        console.log("이곳 4 a1:" + a1);
+        console.log("이곳 4 a2:" + a2);
+        // console.log("이곳 4 a4:" + a4);
+        // a3가 뭔데?
+        // console.log("이곳 4 a3:" + a3);
+    </script>
+</body>
+
+</html>

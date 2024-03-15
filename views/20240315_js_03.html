@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <h1 id="id2">연산자</h1>
+    <h1 class="c2">연산자</h1>
+    <script>
+        var a1 = 10;
+        var a2 = "10";
+        var a3 = true;
+        var a4 = "true";
+        var a5 = 1;
+        console.log((a1==a2)?"==같다":"==다르다"); // 값 비교
+        console.log((a1===a2)?"===같다":"===다르다"); // 값 + 자료형 비교
+        console.log((a3==a4)?"==같다":"==다르다");
+        console.log((a3===a4)?"===같다":"===다르다");
+        console.log((a3==a5)?"==같다":"==다르다");
+        console.log((a3===a5)?"===같다":"===다르다");
+        console.log((a4==a5)?"==같다":"==다르다");
+        console.log((a4===a5)?"===같다":"===다르다");
+
+        var arr = ["apple", "banana"];
+        for(var i = 0; i < arr.length; i++){
+            console.log(arr[i]);
+        }
+        for (var index in arr) {
+            console.log(arr[index]);
+        }
+        var obj = {
+            k1:"seoul",
+            k2:"daejeon",
+            k3:"busan"
+        };
+        console.log(obj.k3);
+        console.log(obj["k3"]);
+        for(var key in obj){
+            console.log(key);
+            console.log(obj[key]);
+            console.log(typeof key);
+        }
+
+
+        var arr = ["apple","banana",function(){console.log("배열 2번 index 함수")}];
+        for(var i in arr){
+            if(typeof(arr[i])=="function") {
+                arr[i]();
+            }else{
+                console.log(arr[i]);
+            }
+        }
+        arr[100] = 1;
+        for(var i in arr){
+            console.log("index:"+i);
+            console.log(arr[i]);
+        }
+        console.log("===========");
+        var arr = new Array(2);
+        arr.push(3);
+        arr.push("apple");
+        arr.push(null);
+        arr[50] = 1;
+        for(var i in arr){
+            console.log("index:" + i);
+            console.log(arr[i]);
+        }
+    </script>
+</body>
+
+</html>
