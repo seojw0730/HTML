@@ -25,7 +25,7 @@
     <script>
         let answer = prompt();
         console.log(answer);
-        if ((answer == null) || (answer == "")) {
+        if ((answer === null) || (answer === "")) {
             document.getElementsByClassName("board")[0].innerHTML = null;
         } else if (answer % 4 == 0) {
             document.getElementsByClassName("answer")[0].innerHTML = answer + "는 4의 배수입니다.";
