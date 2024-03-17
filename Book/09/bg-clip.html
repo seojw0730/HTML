@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .desc{
+            background-color: grey;
+            padding: 20px;
+            margin: 20px;
+        }
+        #clip-border{
+            background-clip: border-box;
+        }
+        #clip-padding{
+            background-clip: padding-box;
+        }
+        #clip-content{
+            background-clip: content-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="desc" id="clip-border">1</div>
+        <div class="desc" id="clip-padding">2</div>
+        <div class="desc" id="clip-content">3</div>
+    </div>
+</body>
+</html>
