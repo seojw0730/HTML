@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>회원가입</title>
     <style>
-        hr{
+        hr {
             height: 1px;
             background-color: red;
             border: 0;
         }
+
+        td,
+        th {
+            border: 1px solid black;
+        }
     </style>
 </head>
+
 <body>
     <form>
         <table>
             <tr>
-                <td colspan="3"><hr></td>
+                <td colspan="3">
+                    <hr>
+                </td>
             </tr>
             <tr>
                 <th><label for="name">이름</label></th>
@@ -98,9 +107,18 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="3"><hr></td>
+                <td colspan="3">
+                    <hr>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="submit" value="회원가입">
+                    <input type="reset" value="취소">
+                </td>
             </tr>
         </table>
     </form>
 </body>
+
 </html>
