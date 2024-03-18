@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <h1>자료형 - Detail</h1>
+    <script>
+        var a1 = "문자\"열1";
+        console.log(a1);
+        a1 += '문자"열1';
+        console.log(a1);
+        a1 += '문자\'열1';
+        console.log(a1);
+        a1 += "문자'열1";
+        console.log(a1);
+        console.log(a1.lastIndexOf('"'));
+    </script>
+    <script>
+        console.log("Number=====");
+        var a1 = 10/0; // Infinity 라는 값
+        console.log(a1);
+        var a2 = a1 + a1; // Infinity
+        console.log(a2);
+        console.log(typeof(a2));
+        var a2 = a1 - a1; // NaN
+        console.log(a2);
+        console.log(typeof(a2));
+        console.log(0/0); // NaN
+        console.log(typeof(0/0));
+        var a3 = "hello" + 1; // string
+        console.log(a3);
+        console.log(typeof(a3));
+        var a3 = "hello" - 1; // NaN
+        console.log(a3);
+        console.log(typeof(a3));
+        var a3 = "hello" * 1; // NaN
+        console.log(a3);
+        console.log(typeof(a3));
+        var a3 = "hello" / 1; // NaN
+        console.log(a3);
+        console.log(typeof(a3));
+        // var b = prompt("숫자를 입력하세요");
+        // console.log(typeof(b)); // string
+        // var c = b * 100;
+        console.log(typeof(c)); // number
+
+        console.log("true/false=====");
+        if([]){
+            console.log("true")
+        }else{
+            console.log("false")
+        }
+
+        console.log("object===")
+        var a4 = [];
+        console.log(typeof(a4))
+        a4.push("a");
+        a4.push("b");
+        a4.push("c");
+        console.log(a4)
+        a4[0]="d"
+        console.log(a4)
+
+        var a5 = {};
+        console.log(typeof(a5));
+        a5.k1 = "v1"; // 방법 1
+        a5["k2"] = "v2"; // 방법 2
+        a5[3] = "v3";
+        console.log(a5);
+
+        for(var key in a5){
+            console.log(a5[key]); // 방법 2만 가능
+        }
+    </script>
+</body>
+
+</html>
