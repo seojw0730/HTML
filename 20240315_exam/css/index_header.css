@@ -4,3 +4,16 @@ header form{
 header img{
     float: right;
 }
+header fieldset{
+    border: 1px solid black;
+}
+header td{
+    border: 1px solid black;
+    padding: 10px;
+}
+header td > input{
+    margin: 10px;
+}
+header td > label{
+    margin: 10px;
+}

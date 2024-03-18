@@ -1,28 +1,29 @@
 /*  */
 .wrap-header > header{
-    margin: 0 auto; width: 100vw; height: 20vh;
+    margin: 0 auto; width: 960px;
 }
 
 /*  */
 .wrap-footer{
     clear: both;
-    margin: 0 auto; width: 100vw;
+    margin: 0 auto; width: 960px;
 }
 .wrap-footer > footer{
-    margin: 0 auto; width: 100vw; height: 15vh;
+    margin: 0 auto; width: 960px; 
     background-color: antiquewhite;
 }
 
 /*  */
 .wrap-main{
     clear: both;
-    margin: 0 auto; width: 100vw;
+    margin: 0 auto; width: 960px;
+    overflow: hidden;
 }
 .wrap-main > aside{
-    float: left; width: 20vw;
+    float: left; width: 200px;
     background-color: gainsboro;
 }
 .wrap-main > section{
-    float: right; width: 80vw;
+    float: right; width: 760px;
     background-color: darkgrey;
 }

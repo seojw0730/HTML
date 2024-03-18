@@ -1,11 +1,19 @@
-body{
+body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1.5vw;
-    line-height: 1.7vw;
+    font-size: 1em;
+    line-height: 1.2em;
 }
-
-h1{
-    font-weight: bold;
-    font-size: 1.7vw;
-    line-height: 1.9vw;
+h1 {
+    font-weight: 900;
+    font-size: 1.28em;
+    line-height: 1.3em;
+}
+h3 {
+    font-weight: 900;
+    font-size: 1em;
+    line-height: 1.1em;
+}
+.nanum-pen {
+    font-family: "Nanum Pen Script", cursive;
+    font-style: normal;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,22 @@
 
         td,
         th {
-            border: 1px solid black;
+            /* border: 1px solid black; */
+        }
+
+        #name,
+        #id,
+        #pswd,
+        #pswd2,
+        #pswd-hint,
+        #pswd-ans,
+        #email,
+        #tel {
+            width: 100px;
+        }
+
+        body>form>table>tbody>tr:nth-child(13)>td>div {
+            text-align: center;
         }
     </style>
 </head>
@@ -22,6 +37,9 @@
 <body>
     <form>
         <table>
+            <col>
+            <col style="width: 100px;">
+            <col>
             <tr>
                 <td colspan="3">
                     <hr>
@@ -34,13 +52,13 @@
             </tr>
             <tr>
                 <th><label for="id">아이디</label></th>
-                <td><input type="text" id="id"></td>
-                <td></td>
+                <td><input type="text" id="id" autofocus></td>
+                <td><a href="#">중복확인</a></td>
             </tr>
             <tr>
                 <th><label for="pswd">비밀번호</label></th>
                 <td><input type="password" id="pswd"></td>
-                <td></td>
+                <td style="font-size: small;">6자 이상</td>
             </tr>
             <tr>
                 <th><label for="pswd2">비밀번호 확인</label></th>
@@ -113,14 +131,21 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <div style="text-align: center;">
-                        <input type="submit" value="회원가입" id="register">
+                    <div>
+                        <input type="submit" name="register" value="회원가입" id="register">
                         <input type="reset" value="취소" id="cancel">
                     </div>
                 </td>
             </tr>
         </table>
     </form>
+    <script>
+        var register = document.getElementById("register");
+        register.onclick = function(){
+            open('./index.html');
+            register(this).onclick = null;
+        }
+    </script>
 </body>
 
 </html>
