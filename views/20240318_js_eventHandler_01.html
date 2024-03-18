@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" id="btn1">버튼1</button>
+    <button type="button" id="btn2">버튼2</button>
+    <button type="button" id="btn3" onclick="cbF3(); (function(){console.log('되나?');})();">버튼3</button>
+    <script>
+        var cbF1 = function(){
+            console.log('고전방식: 이벤트 발생하여 callback함수가 호출될 수 있도록 ()붙여주고...');
+        };
+        var cbF2 = function(){
+            console.log('표준방식: 이벤트 발생하여 callback함수가 호출될 수 있도록 ()붙여주고...');
+        };
+        var cbF3 = function(){
+            console.log('인라인방식: 이벤트 발생하면 따옴표 안의 내용을 그대로 실행');
+        };
+        var num = function(){
+            for(var i = 2; i < 10; i++){
+                console.log("===" + i + "단===");
+                for(var j = 1; j < 10; j++){
+                    console.log(i + " X " + j + " = " + (i*j));
+                }
+            }
+        };
+        var btn1Elem = document.getElementById("btn1");
+        var btn2Elem = document.getElementById("btn2");
+        console.log(typeof btn1Elem);
+        btn1Elem.onclick = cbF1; // 이 변수에는 함수명 자체 대입
+        btn2Elem.addEventListener("click",cbF2);
+        function f1(a1,a2,a3){
+            if(a1 == 'click'){
+                // 클릭될 때까지 기다렸다가, 클릭되면 실행
+                a2();
+            }
+        }
+    </script>
+</body>
+
+</html>

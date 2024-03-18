@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("class constructor 전단계");
+        function f1(age, name, score) {
+            var result = {
+                age: age,
+                name: name,
+                score: score
+            }
+            return result;
+        }
+        let ab = f1(12, "ab", 22); // Java의 매개변수 생성자와 유사
+        let jw = f1(23, 'jw', 100);
+        console.log(ab.score);
+        console.log(jw);
+
+        function Student(age, name, score) {
+                this.age = age,
+                this.name = name,
+                this.score = score
+        }
+        var jw2 = new Student(28, "서", 99);
+        console.log(jw2);
+    </script>
+</body>
+
+</html>
