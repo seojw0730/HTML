@@ -9,8 +9,10 @@
 
 <body>
     <script>
-        let num1 = prompt("비교할 첫 번째 숫자 :");
-        let num2 = prompt("비교할 두 번째 숫자 :");
+        let num1str = prompt("비교할 첫 번째 숫자 :");
+        let num1 = Number.parseInt(num1str);
+        let num2str = prompt("비교할 두 번째 숫자 :");
+        let num2 = Number.parseInt(num2str);
         if (num1 === num2) {
             confirm("같습니다.");
         } else if (num1 > num2) {

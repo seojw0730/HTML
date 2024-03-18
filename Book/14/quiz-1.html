@@ -23,8 +23,8 @@
         <h3 class="answer"></h3>
     </div>
     <script>
-        let answer = prompt();
-        console.log(answer);
+        let answerStr = prompt();
+        let answer = Number.parseInt(answerStr);
         if ((answer === null) || (answer === "")) {
             document.getElementsByClassName("board")[0].innerHTML = null;
         } else if (answer % 4 == 0) {
