@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node</title>
+</head>
+<body>
+    <button type="button" id="btn-add">추가</button>
+    <table border="1" style="border-collapse: collapse;">
+        <thead>
+            <tr id="tbl-col">
+                <td style="color: red;">컬럼명</td>
+                <td>컬럼명</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        var td1 = document.getElementsByTagName("body > table > thead > tr > td")[0];
+        td1.setAttribute("color","red");
+
+
+        let count = 1;
+        function cbf1 () {
+            console.log("cbf1 동작 확인");
+            // 방법1
+                var htmlValue = '';
+                htmlValue += '<tr>';
+                htmlValue += '      <td>' + count + '</td>';
+                htmlValue += '      <td>컬럼명' + count + '</td>';
+                htmlValue += '</tr>';
+                document.getElementsByTagName("tbody")[0].innerHTML = htmlValue;
+
+
+            // 방법2 - DOM
+            // var nodeTr = document.createElement("tr");
+            // var nodeTd1 = document.createElement("td");
+            // var nodeTd2 = document.createElement("td");
+            // var nodeText1 = document.createTextNode("2");
+            // var nodeText2 = document.createTextNode("컬럼명");
+            // nodeTd1.appendChild(nodeText1);
+            // nodeTd2.appendChild(nodeText2);
+            // nodeTr.appendChild(nodeTd1);
+            // nodeTr.appendChild(nodeTd2);
+            // document.getElementsByTagName("tbody")[0].appendChild(nodeTr);
+
+            count++;
+        };
+        document.getElementById("btn-add").addEventListener("click", cbf1);
+    </script>
+</body>
+</html>
