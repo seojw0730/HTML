@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class JavaScriptTestController
+ * Servlet implementation class JsCafeController
  */
-@WebServlet("/js1")
-public class JavaScriptTestController extends HttpServlet {
+@WebServlet("/cafe")
+public class JsCafeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JavaScriptTestController() {
+    public JsCafeController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +27,7 @@ public class JavaScriptTestController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("WEB-INF/views/jstest.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/js_cafe.jsp").forward(request, response);
 	}
 
 }

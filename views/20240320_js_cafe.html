@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <table>
+            <thead>
+                <tr>
+                    <th>메뉴</th>
+                    <th>가격</th>
+                    <th>수량</th>
+                    <th>합계</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>아메리카노</td>
+                    <td><input type="text" value="2500" disabled></td>
+                    <td><input type="text" name="num" class="num aa"></td>
+                    <td><input type="text" name="sum" class="sum aa" readonly></td>
+                </tr>
+                <tr>
+                    <th>합계</th>
+                    <td></td>
+                    <td><input type="text" name="num" class="num total" readonly></td>
+                    <td><input type="text" name="sum" class="total" readonly></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <input type="submit" value="계산하기">
+                        <input type="reset" value="초기화">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <script>
+        $("form").submit(function () {
+            $("input.sum").attr("value", $("td.price").html() * $("input.num").attr("value"));
+        });
+        $("input.num").keydown(function(){
+            $("input.sum").attr("value", $("td.price").html() * $("input.num").attr("value"));
+        });
+        console.log($("td.price").html());
+        console.log($("input.num").attr("value"));
+    </script>
+</body>
+
+</html>

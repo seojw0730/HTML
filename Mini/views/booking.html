@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEET PLAY SHARE, 메가박스</title>
+    <link href="/css/reset.css" rel="stylesheet">
     <style>
         body {
             width: 1100px;
@@ -21,7 +22,8 @@
             list-style-type: none;
             cursor: pointer;
         }
-        .sec2 li > input[type=checkbox]:checked~label:first-of-type{
+
+        .sec2 li>input[type=checkbox]:checked~label:first-of-type {
             background-color: cadetblue;
         }
 
@@ -63,20 +65,34 @@
             position: relative;
             padding: 0 20px 20px 20px;
         }
-
+        
         .sec2 .time-choice {
             width: calc(100% - 620px);
             height: 530px;
         }
-
+        
+        
 
 
 
         
+        .sec2 div.movie-list {
+            width: 100%;
+        }
+
+        .sec2 div.movie-list>div {
+            float: left;
+            width: 50%;
+        }
+
+        .sec2 div>ul.movie-list {
+            overflow-y: scroll;
+        }
+
         .sec2 article.movie-choice>div:nth-of-type(2) {
             margin-top: 40px;
         }
-        
+
         .sec2 article.movie-choice>div:nth-of-type(2)>label {
             cursor: pointer;
             text-align: center;
@@ -85,6 +101,13 @@
             width: 50%;
             border: 1px solid black;
             box-sizing: border-box;
+        }
+
+        .sec2 div.movie>div {
+            width: 50%;
+            box-sizing: border-box;
+            border: 1px solid black;
+            float: left;
         }
 
         .sec2 article.movie-choice input[type=radio] {
@@ -117,17 +140,19 @@
 
 
 
-        .sec2 div.theater-list{
+        .sec2 div.theater-list {
             width: 100%;
         }
-        .sec2 div.theater-list > div{
+
+        .sec2 div.theater-list>div {
             float: left;
             width: 50%;
         }
 
-        .sec2 div > ul.theater-list {
+        .sec2 div>ul.theater-list {
             overflow-y: scroll;
-        } 
+        }
+
         .sec2 article.theater-choice>div:nth-of-type(2) {
             margin-top: 40px;
         }
@@ -182,7 +207,7 @@
 <body>
     <div>
         <header>
-
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit architecto inventore, quaerat cupiditate reiciendis molestias nulla reprehenderit ut esse harum earum dignissimos! Ut nostrum dignissimos non fuga, possimus veniam maiores?
         </header>
     </div>
     <div class="inner-wrap">
@@ -221,16 +246,15 @@
                     영화
                 </div>
                 <div>
-                    <input type="radio" name="movie-tab" id="movie-all" checked="checked" style="margin-top: 40px;">
-                    <input type="radio" name="movie-tab" id="movie-curation">
+                    <input type="radio" name="movie" id="movie-all" checked="checked">
+                    <input type="radio" name="movie" id="movie-curation">
                     <label for="movie-all" class="movie-choice">전체</label>
                     <label for="movie-curation" class="movie-choice">큐레이션</label>
                     <!-- 전체 -->
-                    <div class="movie-list">
+                    <div class="movie-list all">
                         <ul style="overflow-y: scroll;">
                             <li>
-                                <input type="checkbox" name="movie" id="movie1">
-                                <label for="movie1">파묘</label>
+                                파묘
                             </li>
                             <li>
                                 듄2
@@ -241,7 +265,7 @@
                         </ul>
                     </div>
                     <!-- 큐레이션 -->
-                    <div class="movie-list">
+                    <div class="movie-list curation">
                         <ul style="overflow-y: scroll;">
                             <li>
                                 파묘
@@ -260,38 +284,36 @@
                     <label for="theater-all" class="theater-choice">전체</label>
                     <label for="theater-special" class="theater-choice">특별관</label>
                     <!-- 전체 -->
-                    <div>
-                        <div class="theater-list">
-                            <div>
-                                <ul>
-                                    <li>
-                                        지역
-                                    </li>
-                                    <li>
-                                        지역
-                                    </li>
-                                    <li>
-                                        지역
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <ul class="theater-list">
-                                    <li>
-                                        극장
-                                    </li>
-                                    <li>
-                                        극장
-                                    </li>
-                                    <li>
-                                        극장
-                                    </li>
-                                </ul>
-                            </div>
+                    <div class="theater-list all">
+                        <div>
+                            <ul>
+                                <li>
+                                    지역
+                                </li>
+                                <li>
+                                    지역
+                                </li>
+                                <li>
+                                    지역
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="theater-list scroll">
+                                <li>
+                                    극장
+                                </li>
+                                <li>
+                                    극장
+                                </li>
+                                <li>
+                                    극장
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <!-- 특별관 -->
-                    <div class="theater-list">
+                    <div class="theater-list special">
                         <div>
                             <ul>
                                 <li>
@@ -300,7 +322,7 @@
                             </ul>
                         </div>
                         <div>
-                            <ul class="theater-list">
+                            <ul class="theater-list scroll">
                                 <li>
                                     특별관
                                 </li>
@@ -309,12 +331,13 @@
                     </div>
                 </div>
             </article>
-            <article class="time-choice" style="">
+            <article class="time-choice">
                 <div style="height: 38px;">
                     시간
                 </div>
                 <div style="height: 30px; border: 1px solid black; text-align: center; margin: 0 auto;">
-                    <button type="button" style="background-image: url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-cld-pre.png); width: 7px; height: 12px; background-repeat: no-repeat;"></button>
+                    <button type="button"
+                        style="background-image: url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-cld-pre.png); width: 7px; height: 12px; background-repeat: no-repeat;"></button>
                     <button type="button">11</button>
                     <button type="button">12</button>
                     <button type="button">13</button>
