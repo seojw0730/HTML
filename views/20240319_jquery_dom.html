@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- bootstrap은 body 종료 태그 바로 위에. -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-</head>
-
-<body>
-    <button type="button" id="btn-add">추가</button>
-    <table border="1" style="border-collapse: collapse;">
-        <thead>
-            <tr id="tbl-col">
-                <td style="color: red;">컬럼명</td>
-                <td>컬럼명</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <!-- jquery js 파일은 무조건 첫 줄에. -->
+    </head>
+    
+    <body>
+        <button type="button" id="btn-add">추가</button>
+        <table border="1" style="border-collapse: collapse;">
+            <thead>
+                <tr id="tbl-col">
+                    <td style="color: red;">컬럼명</td>
+                    <td>컬럼명</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
                 <td>1</td>
                 <td>1</td>
             </tr>
@@ -35,7 +35,7 @@
         <tbody>
         </tbody>
     </table>
-
+    
     <script>
         console.log($("tr").get(0));
         console.log($("tr").first().get(0));
@@ -102,7 +102,7 @@
 
 
 
-    <!-- jquery js 파일은 무조건 첫 줄에. -->
+    <!-- bootstrap은 body 종료 태그 바로 위에. -->
 </body>
 
 </html>
