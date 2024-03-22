@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.wrap-1 section{
+	width: 960px;
+}
+.wrap-1 fieldset,
+.wrap-1 table{
+	width: 100%;
+	box-sizing: border-box;
+}
+.wrap-1 input.notice.title,
+.wrap-1 textarea.notice.content,
+.wrap-1 input.notice.file{
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.wrap-1 textarea.notice.content{
+	resize: none;
+	height: 100px;
+}
+
+.wrap-1 section td.input.submit{
+	text-align: center;
+}
+
+.wrap-1 table.notice.list th{
+	color: white;
+	background-color: rgb(255, 160, 122);
+}
+.wrap-1 table.notice.list td{
+	background-color: rgb(255, 255, 224);
+}
