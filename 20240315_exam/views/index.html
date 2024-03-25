@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <link href="../css/reset.css" rel="stylesheet">
     <link href="../css/index_core.css" rel="stylesheet">
     <link href="../css/index_layout.css" rel="stylesheet">
@@ -11,7 +13,22 @@
     <link href="../css/index_aside.css" rel="stylesheet">
     <link href="../css/index_section.css" rel="stylesheet">
     <link href="../css/index_footer.css" rel="stylesheet">
+    <script>
+        $(loadedHandler);
+        function loadedHandler(){
+            $("aside.side-bar>div").css("cursor", "pointer");
+            $("aside.side-bar>div").on("click", bodyHandler);
+        }
+
+        function bodyHandler(){
+            $("section.section>div").hide();
+            $("section.section>div." + $(this).attr('class')).show();
+        }
+    </script>
+    <style>
+    </style>
 </head>
+
 <body>
     <div class="wrap">
         <div class="wrap-header">
@@ -60,32 +77,26 @@
             </header>
         </div>
         <div class="wrap-main">
-            <aside>
-                <div>
-                    <a>
-                        메인
-                    </a>
-                </div>
-                <div>
-                    <a>
-                        공지사항
-                    </a>
-                </div>
-                <div>
-                    <a>
-                        자유게시판
-                    </a>
-                </div>
+            <aside class="side-bar">
+                <div class="main">메인</div>
+                <div class="notice">공지사항</div>
+                <div class="board">자유게시판</div>
             </aside>
-            <section>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, minima! Odit sint eum veritatis reiciendis inventore in rem, quia perspiciatis! Voluptates culpa molestiae incidunt quos enim cupiditate quo ratione placeat.
+            <section class="section">
+                <div class="main">
+                    메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 
+                    메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 
+                    메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 메인 
                 </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, minima! Odit sint eum veritatis reiciendis inventore in rem, quia perspiciatis! Voluptates culpa molestiae incidunt quos enim cupiditate quo ratione placeat.
+                <div class="notice">
+                    공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 
+                    공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 
+                    공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 공지사항 
                 </div>
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, minima! Odit sint eum veritatis reiciendis inventore in rem, quia perspiciatis! Voluptates culpa molestiae incidunt quos enim cupiditate quo ratione placeat.
+                <div class="board">
+                    자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 
+                    자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 
+                    자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 자유게시판 
                 </div>
             </section>
         </div>
@@ -102,7 +113,7 @@
                 </div>
             </footer>
         </div>
-
     </div>
 </body>
+
 </html>

@@ -18,6 +18,7 @@
     clear: both;
     margin: 0 auto; width: 960px;
     overflow: hidden;
+    display: flex;
 }
 .wrap-main > aside{
     float: left; width: 200px;

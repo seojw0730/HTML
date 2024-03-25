@@ -1,32 +1,497 @@
-/* 
-@import url(./reset.css);
- */
-span {
-    font-size: x-large;
+@charset "UTF-8";
+
+.booking-sec1 div.quick-reserve-datelist {
+    align-content: center;
 }
 
-#n1text {
-    text-decoration-line: overline;
+.booking-sec1 div.quick {
+    float: left;
+    width: auto;
 }
 
-label {
-    color: chocolate;
-    cursor: grab;
+.booking-sec1 div.cal {
+    float: right;
+    width: auto;
 }
 
-input {
-    background-color: aqua;
+.booking-sec1 img.ui-datepicker-trigger {
+    cursor: pointer;
 }
 
-.tc-red {
-    color: red;
-    font-style: italic;
+.booking-sec1 .ui-datepicker {
+    width: 17em;
+    padding: .2em .2em 0;
+    display: none
 }
 
-.bg-blue {
-    background-color: blue;
+.booking-sec1 .ui-datepicker .ui-datepicker-header {
+    position: relative;
+    padding: .2em 0
 }
 
-h1{
-    color: yellowgreen;
+.booking-sec1 .ui-datepicker .ui-datepicker-next,
+.booking-sec1 .ui-datepicker .ui-datepicker-prev {
+    position: absolute;
+    top: 2px;
+    width: 1.8em;
+    height: 1.8em
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-next-hover,
+.booking-sec1 .ui-datepicker .ui-datepicker-prev-hover {
+    top: 1px
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-prev {
+    left: 2px
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-next {
+    right: 2px
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-prev-hover {
+    left: 1px
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-next-hover {
+    right: 1px
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-next span,
+.booking-sec1 .ui-datepicker .ui-datepicker-prev span {
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
+    top: 50%;
+    margin-top: -8px
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-title {
+    margin: 0 2.3em;
+    line-height: 1.8em;
+    text-align: center
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-title select {
+    font-size: 1em;
+    margin: 1px 0
+}
+
+.booking-sec1 .ui-datepicker select.ui-datepicker-month,
+.booking-sec1 .ui-datepicker select.ui-datepicker-year {
+    width: 45%
+}
+
+.booking-sec1 .ui-datepicker table {
+    width: 100%;
+    font-size: .9em;
+    border-collapse: collapse;
+    margin: 0 0 .4em
+}
+
+.booking-sec1 .ui-datepicker th {
+    padding: .7em .3em;
+    text-align: center;
+    font-weight: 700;
+    border: 0
+}
+
+.booking-sec1 .ui-datepicker td {
+    border: 0;
+    padding: 1px
+}
+
+.booking-sec1 .ui-datepicker td a,
+.booking-sec1 .ui-datepicker td span {
+    display: block;
+    padding: .2em;
+    text-align: right;
+    text-decoration: none
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-buttonpane {
+    background-image: none;
+    margin: .7em 0 0 0;
+    padding: 0 .2em;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-buttonpane button {
+    float: right;
+    margin: .5em .2em .4em;
+    cursor: pointer;
+    padding: .2em .6em .3em .6em;
+    width: auto;
+    overflow: visible
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+    float: left
+}
+
+.booking-sec1 .ui-datepicker.ui-datepicker-multi {
+    width: auto
+}
+
+.booking-sec1 .ui-datepicker-multi .ui-datepicker-group {
+    float: left
+}
+
+.booking-sec1 .ui-datepicker-multi .ui-datepicker-group table {
+    width: 95%;
+    margin: 0 auto .4em
+}
+
+.booking-sec1 .ui-datepicker-multi-2 .ui-datepicker-group {
+    width: 50%
+}
+
+.booking-sec1 .ui-datepicker-multi-3 .ui-datepicker-group {
+    width: 33.3%
+}
+
+.booking-sec1 .ui-datepicker-multi-4 .ui-datepicker-group {
+    width: 25%
+}
+
+.booking-sec1 .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
+.booking-sec1 .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+    border-left-width: 0
+}
+
+.booking-sec1 .ui-datepicker-multi .ui-datepicker-buttonpane {
+    clear: left
+}
+
+.booking-sec1 .ui-datepicker-row-break {
+    clear: both;
+    width: 100%;
+    font-size: 0
+}
+
+.booking-sec1 .ui-datepicker-rtl {
+    direction: rtl
+}
+
+.booking-sec1 .ui-datepicker-rtl .ui-datepicker-prev {
+    right: 2px;
+    left: auto
+}
+
+.booking-sec1 .ui-datepicker-rtl .ui-datepicker-next {
+    left: 2px;
+    right: auto
+}
+
+.booking-sec1 .ui-datepicker-rtl .ui-datepicker-prev:hover {
+    right: 1px;
+    left: auto
+}
+
+.booking-sec1 .ui-datepicker-rtl .ui-datepicker-next:hover {
+    left: 1px;
+    right: auto
+}
+
+.booking-sec1 .ui-datepicker-rtl .ui-datepicker-buttonpane {
+    clear: right
+}
+
+.booking-sec1 .ui-datepicker-rtl .ui-datepicker-buttonpane button {
+    float: left
+}
+
+.booking-sec1 .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,
+.booking-sec1 .ui-datepicker-rtl .ui-datepicker-group {
+    float: right
+}
+
+.booking-sec1 .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,
+.booking-sec1 .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+    border-right-width: 0;
+    border-left-width: 1px
+}
+
+.booking-sec1 .ui-datepicker .ui-icon {
+    display: block;
+    text-indent: -99999px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    left: .5em;
+    top: .3em
+}
+
+.booking-sec1 .datepicker {
+    display: inline-block;
+    width: 118px;
+    height: 32px;
+    padding: 0 10px;
+    line-height: 30px;
+    border-radius: 0 !important;
+    border: 1px solid #d8d9db;
+    border-width: 1px 0 1px 1px;
+    vertical-align: middle;
+    font-family: NanumBarunGothic, Dotum, '돋움', sans-serif
+}
+
+.booking-sec1 .datepicker::-ms-clear {
+    display: none
+}
+
+.booking-sec1 .datepicker::placeholder {
+    color: #999;
+    opacity: 1
+}
+
+.booking-sec1 .datepicker:-ms-input-placeholder {
+    color: #999
+}
+
+.booking-sec1 .datepicker::-ms-input-placeholder {
+    color: #999
+}
+
+.booking-sec1 .date-calendar.v2+.ui-datepicker-trigger {
+    height: 36px
+}
+
+.booking-sec1 .ui-datepicker-trigger {
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #d8d9db;
+    border-width: 1px 1px 1px 0;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+    background: #fff url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-calendar.png) no-repeat center
+}
+
+.booking-sec1 .ui-datepicker {
+    z-index: 2001
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-title select {
+    display: inline-block;
+    width: 40%;
+    vertical-align: middle;
+    margin: 0 4px
+}
+
+.booking-sec1 .ui-priority-secondary,
+.booking-sec1 .ui-widget-content .ui-priority-secondary,
+.booking-sec1 .ui-widget-header .ui-priority-secondary {
+    opacity: 1;
+    filter: Alpha(Opacity=100);
+    font-weight: 400
+}
+
+.booking-sec1 .ui-datepicker td a,
+.booking-sec1 .ui-datepicker td span {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    line-height: 22px;
+    text-align: center;
+    color: #444;
+    border-radius: 24px;
+    text-decoration: none
+}
+
+.booking-sec1 .ui-datepicker {
+    width: 264px;
+    z-index: 1000 !important
+}
+
+.booking-sec1 .ui-datepicker.ui-widget.ui-widget-content {
+    border-color: #ccc
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-header {
+    height: 36px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: #351f66;
+    color: #fff;
+    font-weight: 400
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-title {
+    margin: 0;
+    padding: 0;
+    line-height: 36px
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-next,
+.booking-sec1 .ui-datepicker .ui-datepicker-prev {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 0;
+    cursor: pointer
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-prev {
+    left: 2px
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-next {
+    right: 2px
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-prev-hover {
+    left: 2px;
+    border: 0;
+    background-color: #693fc6
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-next-hover {
+    right: 2px;
+    border: 0;
+    background-color: #693fc6
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-next span,
+.booking-sec1 .ui-datepicker .ui-datepicker-prev span {
+    margin-top: -5px;
+    margin-left: -3px
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-prev .ui-icon-circle-triangle-w {
+    width: 6px;
+    height: 10px;
+    background:
+        url(https://img.megabox.co.kr/static/pc/images/common/btn/btn-prev-month.png) no-repeat 0 0
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-next .ui-icon-circle-triangle-e {
+    width: 6px;
+    height: 10px;
+    background:
+        url(https://img.megabox.co.kr/static/pc/images/common/btn/btn-next-month.png) no-repeat 0 0
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar {
+    margin: 0;
+    font-size: 1em
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td,
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar th {
+    margin: 0;
+    padding: 4px 0;
+    text-align: center
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td {
+    font-size: .8em
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    line-height: 22px;
+    text-align: center;
+    color: #444;
+    border-radius: 24px
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td a.ui-state-default {
+    border: 0;
+    background: #fff;
+    line-height: 24px
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td a.ui-state-default.ui-state-hover {
+    background-color: #ebebeb
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td a.ui-state-default.ui-state-active {
+    color: #fff;
+    background-color: #01738b;
+    border: 0;
+    line-height: 24px
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td a.meagBox-selected-day {
+    border: 1px dashed #b1b1b1;
+    background: #ebebeb;
+    line-height: 22px
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td.ui-datepicker-today a {
+    color: #01738b;
+    line-height: 22px;
+    border: 1px solid #01738b;
+    background-color: #fff
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td.ui-datepicker-today a.ui-state-highlight {
+    background-color: #fff
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td a.ui-state-highlight.ui-state-active {
+    color: #fff;
+    background-color: #01738b;
+    border: 0;
+    line-height: 24px
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td.ui-state-disabled,
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td.ui-widget-content .ui-state-disabled,
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td.ui-widget-header .ui-state-disabled {
+    opacity: 1;
+    filter: Alpha(Opacity=100);
+    background-image: none
+}
+
+.booking-sec1 .ui-datepicker table.ui-datepicker-calendar td.ui-state-disabled .ui-icon {
+    filter: Alpha(Opacity=100)
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-buttonpane {
+    overflow: hidden;
+    margin: 5px 0 0 0;
+    padding: 10px 5px;
+    border: 0;
+    border-top: 1px solid #ebebeb;
+    background-image: none
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+    display: block;
+    float: left;
+    width: 42px;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    font-size: .8667em;
+    border-radius: 2px;
+    border-color: #d8d9db;
+    background-color: #fff
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current.ui-state-hover {
+    background-color: #fff
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-buttonpane .legend {
+    float: right
+}
+
+.booking-sec1 .ui-datepicker .ui-datepicker-buttonpane .legend .iconset {
+    margin-left: 6px
 }
