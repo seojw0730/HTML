@@ -72,7 +72,7 @@
             // 매개인자에 따라 다르게 기능시킬 수 있는 JS 특성
             var temp = $("tbody").eq(0).html();
             $("tbody").eq(0).html(temp + htmlValue);
-            if($("tbody > tr > td:last-of-type") % 2 == 0){
+            if($("tbody > tr > td:last-of-type").length % 2 == 0){
                 $("tr > td:first-of-type").css("color", "blue");
             }else{
                 $("tr > td:first-of-type").css("color", "red");
