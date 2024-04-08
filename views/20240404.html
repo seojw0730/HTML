@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
+</head>
+<body>
+    <div id="calendar" style="width: 900px;"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            // Tool Bar 목록 document : https://fullcalendar.io/docs/toolbar
+            headerToolbar: {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
+            },
+            selectable: true,
+            selectMirror: true,
+            navLinks: false,
+            editable: false,
+            dayMaxEvents: false,
+            events: [
+                {
+                    color: '#ff0000',
+                    title: 'Long Event',
+                    start: '2024-04-07',
+                    end: '2024-04-10'
+                },
+                {
+                    title: 'Conference',
+                    start: '2024-04-11',
+                    end: '2024-04-13'
+                },
+                {
+                    title: 'Conference2',
+                    start: '2024-04-11',
+                    end: '2024-04-13'
+                },
+                {
+                    title: 'Meeting',
+                    start: '2024-04-12T10:30:00',
+                    end: '2024-04-12T12:30:00'
+                },
+                {
+                    title: 'Lunch',
+                    start: '2024-04-12T12:00:00'
+                },
+                {
+                    title: 'Meeting',
+                    start: '2024-04-12T14:30:00'
+                },
+                {
+                    title: 'Happy Hour',
+                    start: '2024-04-12T17:30:00'
+                },
+                {
+                    title: 'Dinner',
+                    start: '2024-04-12T20:00:00'
+                },
+                {
+                    title: 'Birthday Party',
+                    start: '2024-04-13T07:00:00'
+                },
+                {
+                    title: 'Click for Google',
+                    url: 'http://google.com/',
+                    start: '2024-04-28'
+                }
+            ]
+        });
+
+        calendar.render();
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="nextez">
+<meta name="description" content="제주 별빛누리공원 홈페이지를 소개합니다">
+<meta name="keywords" content="제주시, 별빛누리공원, 제주별빛누리공원, 과학관">
+
+<title>별빛누리공원&nbsp;-&nbsp;제주시</title>
+
+<!--공통 css-->
+<link rel="stylesheet" href="/css/star/common.css">
+
+<!-- 추가css -->
+<link rel="stylesheet" href="/css/star/main.css">
+<!--ie9 미만 (자동실행)-->
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/css/web/ie8.css">
+<script src="/js/html5shiv.js"></script>
+<![endif]-->
+
+
+<script src="/js/jquery-1.11.1.js"></script>
+<script src="/js/jquery-ui-1.11.4.js"></script>
+<script src="/js/jquery.cookie.js"></script>
+<script src="/js/csli_tran_call.js"></script>
+<script src="/js/star/swiper.js"></script>
+<script src="/js/star/html_comm.js"></script>
+<script src="/js/star/html_style.js"></script>
+    
+<script src="/js/common.js" ></script>
+
+<!-- <script type="text/javascript" src="https://jsgetip.appspot.com"></script> -->
+<script type="text/javascript">
+	
+function ip() {
+	
+	return "121.65.121.149";
+}
+	
+	
+if ("false" == "true" && document.location.protocol == 'http:') {
+	
+    if (ip().substr(0,3) != '113' && ip().substr(0,3) != '211' && ip() != '127.0.0.1') {
+    	
+        document.location.href = document.location.href.replace('http:', 'https:');
+    }
+} 
+// 주석 처리 (2021-01-29 By JDongS)
+/* else if ("false" == "false" && document.location.protocol == 'https:') {
+	
+    document.location.href = document.location.href.replace('https:', 'http:');
+}  */
+else if (document.location.hostname == "jejusi.go.kr") {
+	
+    document.location.href = document.location.href.replace('jejusi.go.kr', 'www.jejusi.go.kr');
+}
+</script><script src="/js/jquery.cookie.js"></script>
+<script type="text/javascript">
+
+
+//document.location.href="/htmls/work/work2018.htm";
+
+
+    if ($.cookie('penta_sso') == "Y" && $.cookie('penta_isSession') == "Y" && "" == ""){
+        // 로그인처리
+        if ("" != null && "" != ""){
+            document.location.href="/penta/sso/business.jsp?returnURL=" + "";
+        } else if ($(location).attr('pathname') + $(location).attr('search') == "/"){
+            document.location.href="/penta/sso/business.jsp";
+        } else {
+            document.location.href="/penta/sso/business.jsp?returnURL=" + encodeURIComponent($(location).attr('pathname') + $(location).attr('search'));
+        }
+    }
+	
+    /*
+    //2019.05.22 ksb1110@gmail.com
+    //세션만 유지되고 있으면 로그아웃 시키지 않아도 된다.
+    //쿠키 기능이 정상적이지 않은 경우에도 로그인은 되야 하기 때문이다
+    if (($.cookie('penta_sso') != "Y" || $.cookie('penta_isSession') != "Y") && "" != ""){
+        if ("" == "0"){
+
+        } else {
+            // 로그아웃처리
+            document.location.href="/penta/sso/logout.jsp";
+        }
+    }
+    */
+</script><script type="text/javascript">
+
+
+
+
+
+
+
+
+var contextPath = "";
+
+$(document).ready(function(){
+    
+
+    $(".loginLink").attr("href", "/penta/sso/business.jsp?returnURL=" + encodeURIComponent($(location).attr('pathname') + $(location).attr('search')));
+});
+
+var nonMemberLoginCode = "1";
+var sciUserId = "";
+var sciUserName = "";
+
+//비회원로그인 팝업
+function fn_nonMembersLogin(){
+    var nonLoginPopup = window.open("/nonMembersLogin.ac", "비회원로그인", "resizable=yes,scrollbars=yes,width=820,height=700");
+
+    var timer = setInterval(function() {
+        if (nonLoginPopup.closed) { // 종료
+            clearInterval(timer);
+
+            //코드
+            if (nonMemberLoginCode == "sci"){
+                $.ajax({
+                    type: 'GET',
+                    data: { "userId":sciUserId, "userName":sciUserName },
+                    url: "/sciLoginProc.ajax",
+                    success: function() {
+                        window.location.reload();
+                    }
+                });
+            } else {
+                $.ajax({
+                    type: 'GET',
+                    url: "/gpinLoginProc.ajax",
+                    success: function() {
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+    }, 500);
+}
+
+function fn_confirmLogin(){
+    if (!confirm("글쓰기는 로그인한 회원에게만 제공됩니다. 로그인하시겠습니까?")) return;
+    location.href = "/penta/sso/business.jsp?returnURL=" + encodeURIComponent($(location).attr('pathname') + $(location).attr('search'));
+}
+
+function fn_csli_etgi_trans(lang) {
+	
+    //CSLI_ETGI_TRANS('http://www.jejusi.go.kr/star/main.do' + $(location).attr('search'), lang, 'web_0');
+    
+	//lang (kte : 영어, ktc : 중국어, ktj : 일본어)
+	
+	//번역할 URL
+	var url = window.location.href;
+	
+	//url 인코딩
+	url = encodeURIComponent(url);
+	
+	//웹번역 호출 URL
+	var transUrl = "";
+
+	//영어
+	if(lang == "kte") {
+		
+		transUrl = "http://webtrans.wordia.co.kr:7000/etgi/gov/jejusi/english.html?url=" + url;
+	}
+	//중국어
+	else if(lang == "ktc") {
+
+		transUrl = "http://webtrans.wordia.co.kr:7000/etgi/gov/jejusi/chinese.html?url=" + url;
+	}
+	//일본어
+	else if(lang == "ktj") {
+
+		transUrl = "http://webtrans.wordia.co.kr:7000/etgi/gov/jejusi/japanese.html?url=" + url;
+	}
+	
+	window.open(transUrl,"transPop");
+}
+
+function fn_searchWise(){
+    var gsWin = window.open("about:blank", "search");
+    var frm = document.getElementById("search_form_wise");
+    frm.action = "https://www.jeju.go.kr/search/";
+    frm.target = "search";
+    frm.method = "get";
+    frm.submit();
+}
+</script><script src="/js/jquery.form.min.js"></script>
+
+<script type="text/javascript">
+
+	var time = fn_getTimeStamp('onlyNumber');
+
+	$(document).ready(function() {
+
+		//Main Top Banner Slider
+        if($('#main_top_slider .swiper-slide').length > 1) {
+            var topSwiper = new Swiper('#main_top_slider', {
+                nextButton: '#main_top_next',
+                prevButton: '#main_top_prev',
+                pagination: '#main_top_navi',
+                paginationClickable: true,
+                autoplay: 5000,
+                loop: true
+            });
+        }
+        else {
+            $('#main_top_arrow').hide();
+        }
+        $('#main_top_pause').on('click', function() {
+            topSwiper.stopAutoplay();
+            $(this).hide();
+            $('#main_top_play').show();
+        });
+        $('#main_top_play').on('click', function() {
+            topSwiper.startAutoplay();
+            $(this).hide();
+            $('#main_top_pause').show();
+        });
+
+
+     	//관련기관 배너 Slider
+        if($('#public_banner .swiper-slide').length > 1) {
+            var publicSwiper = new Swiper('#public_banner', {
+                slidesPerView: 'auto',
+				spaceBetween: 20,
+                nextButton: '#public_next',
+                prevButton: '#public_prev',
+                paginationClickable: true,
+                autoplay: 5000,
+                loop: true
+            });
+        }
+        else {
+            $('#public_arrow').hide();
+        }
+        $('#public_pause').on('click', function() {
+            publicSwiper.stopAutoplay();
+            $(this).hide();
+            $('#public_play').show();
+        });
+        $('#public_play').on('click', function() {
+            publicSwiper.startAutoplay();
+            $(this).hide();
+            $('#public_pause').show();
+        });
+
+        makeDayList(time.substring(4,6).replace(/(^0+)/, ""));
+        $("#search_month").val(time.substring(4,6).replace(/(^0+)/, ""));
+        $("#search_day").val(time.substring(6,8).replace(/(^0+)/, ""));
+        $("#search_hour").val(time.substring(8,10).replace(/(^0+)/, ""));
+
+        $("#search_month").change(function() {
+            makeDayList($(this).val());
+        });
+
+
+	});
+
+	function makeDayList(month){
+		var now = new Date();
+        var lastDay = new Date(now.getYear(), month, 0).getDate();
+		$("#search_day option").remove();
+        for (var d=1; d<=lastDay; d++) {
+            var selected_str = (month == "11" && d == "7") ? " selected" : "";
+            $("#search_day").append("<option value='" + d + "'" + selected_str + ">" + d + "일</option>");
+        }
+	}
+
+
+
+	function openStarMap(type){
+		var url = '/star/map.ac';
+		if(type == "Y"){
+			var search_month = $("#search_month").val();
+			var search_day = $("#search_day").val();
+			var search_hour = $("#search_hour").val();
+			url = url + '?search_month='+search_month+'&search_day='+search_day+'&search_hour='+search_hour;
+		}
+		window.open( url, '별자리정보', 'width=1200, height=820, status=no, scrollbars=yes');
+	}
+
+	function openDateInfo(){
+		window.open('/star/dateInfo.ac', '날짜정보', 'width=360, height=500, status=no, scrollbars=no');
+	}
+
+</script>
+
+<!-- 메인만 숨김처리 -->
+<style type="text/css">
+	.snb-quick-menu {display: none !important;}
+</style>
+<!-- //메인만 숨김처리 -->
+
+</head>
+
+<body>
+<div id="wrap">
+
+    <script type="text/javascript">
+$(document).ready(function(){
+	//탭패널
+	tabPanel({container: "#tabs"});
+});
+
+
+function fn_autoLayer(event){
+    if(event.keyCode==13) {
+        fn_searchWise();
+        return;
+    }
+
+    $.ajax({
+        type: 'GET',
+        url: "/search/autoComplete.ajax",
+        data: { "keyword":$("#search_query").val() },
+        success: function(data) {
+            $("#autoCompleteUL").empty();
+
+            if (data.list.length == 0){
+                $(".suggest_lay").hide();
+            } else {
+                $(".suggest_lay").show();
+            }
+
+            for (var i=0; i<data.list.length; i++){
+                var liTag = $("<li>").append(data.list[i]);
+                liTag.attr("onclick", "javascript:fn_clickAutoComplete('" + data.list[i] + "')");
+
+                $("#autoCompleteUL").append(liTag);
+            }
+        }
+    });
+}
+
+function fn_clickAutoComplete(keyword){
+    $("#search_query").val(keyword);
+    fn_searchWise();
+}
+
+
+//로그아웃
+function fn_act_logout() {
+	
+	// 로그아웃 후 이동 URL cookie 생성
+	//$.cookie('jejusi_nextUrl', '/star/main.do', {path: '/', domain: '.jejusi.go.kr'});
+	
+	// 통합 로그아웃 처리
+	location.href = "/penta/sso/logout.jsp?nextReturnUrl=" + encodeURIComponent("/star/main.do");
+}
+
+/* //로그아웃
+function fn_act_logout() {
+	iframeLogout();
+	setTimeout(function() { window.location.reload() }, 3000);
+
+	/*$.post("/logoutProc.ajax", "", function(data) {
+		setTimeout(function() { window.location.reload() }, 2000);
+	});
+}
+
+function iframeLogout() {
+	var form = document.createElement("form");
+	form.method = "get";
+	form.action = "/penta/sso/logout.jsp";
+	form.target = "logoutIfrm";
+	var element1 = document.createElement("input");
+	element1.value="dummy";
+	element1.name="dummy";
+	form.appendChild(element1);
+	document.body.appendChild(form);
+	form.submit();
+} */
+
+</script>
+
+    <!--Header 영역-->
+    <header id="header_wrap">
+        <!--skip navigation-->
+        <div id="skip_navi" class="skip-navi">
+            <div class="skip-wrap">
+                <a href="#skip_content">본문 내용 바로가기</a>
+                <a href="#main_menu">주 메뉴 바로가기</a>
+            </div>
+        </div>
+        <!--//skip navigation-->
+
+		<iframe width="0" height="0" scrolling="no" frameborder="0" id="logoutIfrm" name="logoutIfrm" src="" marginwidth="0" marginheight="0" style="display:none;width:0px;height:0px;"></iframe>
+
+        <div class="header_area">
+        	<h1><a href="/star/main.do"><img src="/images/star/comm/logo.png" alt="제주시 별빛누리공원"></a></h1>
+            <ul class="right_menu">
+				<li id="mainmenu"><a href="javascript:void(0)"><img src="/images/star/btn/fullmenu_btn01.png" alt="주메뉴 보기"></a></li>
+				<li id="fullmenu"><a href="javascript:void(0)"><img src="/images/star/btn/fullmenu_btn01.png" alt="전체메뉴"></a>
+					<!--전체메뉴-->
+					<div class="fullmenu_wrap" id="fullmenu_lay">
+						<div class="fullmenu_area">
+							<dl>
+										<dt>이용안내</dt>
+										<dd>
+											<ul>
+												<li><a href="/star/use/facility.do">주요시설</a></li>
+															<!--
+					                                    <ul><li>
+						                                        	<a href="/star/use/facility/1F.do">1층</a>
+						                                            	</li>
+						                                    <li>
+						                                        	<a href="/star/use/facility/2F.do">2층</a>
+						                                            	</li>
+						                                    <li>
+						                                        	<a href="/star/use/facility/3F.do">3층</a>
+						                                            	</li>
+						                                    </ul>
+					                                    -->
+													<li><a href="/star/use/feediscount.do">요금 및 할인</a></li>
+															<!--
+					                                    
+					                                    -->
+													<li><a href="/star/use/opthour.do">운영시간 안내</a></li>
+															<!--
+					                                    
+					                                    -->
+													<li><a href="/star/use/location.do">찾아오시는 길</a></li>
+															<!--
+					                                    
+					                                    -->
+													</ul>
+										</dd>
+									</dl>
+								<dl>
+										<dt>예약안내</dt>
+										<dd>
+											<ul>
+												<li><a href="/star/reserv/rsvInfo2.do">예약 안내</a></li>
+															<!--
+					                                    
+					                                    -->
+													<li><a href="/star/reserv/rsvgrpstat.do">단체 예약 현황</a></li>
+															<!--
+					                                    
+					                                    -->
+													<li><a href="/star/reserv/receipt.do">현장체험학습 안내</a></li>
+															<!--
+					                                    
+					                                    -->
+													<li><a href="/star/reserv/status.do">현장체험학습 현황</a></li>
+															<!--
+					                                    <ul><li>
+						                                        	<a href="/star/reserv/status/group.do">단체</a>
+						                                            	</li>
+						                                    <li>
+						                                        	<a href="/star/reserv/status/fieldStudy.do">현장체험학습의 날</a>
+						                                            	</li>
+						                                    </ul>
+					                                    -->
+													</ul>
+										</dd>
+									</dl>
+								<dl>
+										<dt>행사 및 교육</dt>
+										<dd>
+											<ul>
+												<li><a href="/star/intro/event.do">행사 및 교육안내</a></li>
+															<!--
+					                                    
+					                                    -->
+													<li><a href="/star/intro/applway.do">신청방법</a></li>
+															<!--
+					                                    
+					                                    -->
+													<li><a href="/star/intro/application.do">행사 및 교육신청</a></li>
+															<!--
+					                                    
+					                                    -->
+													<li><a href="/star/intro/exprn_open.do">체험행사 사전예약</a></li>
+															<!--
+					                                    
+					                                    -->
+													</ul>
+										</dd>
+									</dl>
+								<dl>
+										<dt>커뮤니티</dt>
+										<dd>
+											<ul>
+												<li><a href="/star/community/announce.do">공지사항</a></li>
+															<!--
+					                                    
+					                                    -->
+													<li><a href="/star/community/qna.do">Q&A</a></li>
+															<!--
+					                                    
+					                                    -->
+													<li><a href="/star/community/faq.do">FAQ</a></li>
+															<!--
+					                                    
+					                                    -->
+													</ul>
+										</dd>
+									</dl>
+								<dl>
+										<dt>제주별빛누리공원</dt>
+										<dd>
+											<ul>
+												<li><a href="/star/info/character.do">CI/캐릭터 소개</a></li>
+															<!--
+					                                    <ul><li>
+						                                        	<a href="/star/info/character/ci.do">CI</a>
+						                                            	</li>
+						                                    <li>
+						                                        	<a href="/star/info/character/character.do">캐릭터</a>
+						                                            	</li>
+						                                    </ul>
+					                                    -->
+													<li><a href="/star/info/astroPhenomenon.do">천문현상 안내</a></li>
+															<!--
+					                                    
+					                                    -->
+													</ul>
+										</dd>
+									</dl>
+								<span class="close_btn"><a href="javascript:void(0)" title="전체메뉴 닫기"><img src="../../images/star/btn/close_btn01.png" alt="닫기"></a></span>
+						</div>
+					</div>
+					<!--//전체메뉴-->
+				</li>
+				<li id="search_btn"><a href="javascript:;" onclick="show_search();return false;" ><img src="/images/star/icon/search_icon01.png" alt="통합검색"></a></li>
+			</ul>
+
+            <!--통합검색-->
+			<div class="container">
+				<div class="search_area" id="search_lay">
+					<h2 class="hidden">통합 검색</h2>
+					<div class="search_box">
+						<div class="input">
+
+							<form name="search_form_wise" id="search_form_wise" method="post" action="http://www.jeju.go.kr/search/" onsubmit="return false;">
+                                <input type="hidden" name="access" value="JEJUSI" />
+                                <label class="hidden" for="search_query">검색입력</label>
+                                <input type="text" id="search_query" name="query" value="" onkeyup="javascript:fn_autoLayer(event);" autocomplete="off">
+                                <button type="button" id="jejuSearchBtn" onclick="javascript:fn_searchWise();" title="새창"><img src="/images/star/icon/search_icon02.png" alt="검색"></button>
+                            </form>
+
+						</div>
+					</div>
+					<span class="close_btn"><a href="javascript:void(0)" title="통합검색 닫기"><img src="../../images/star/btn/close_btn01.png" alt="닫기"></a></span>
+				</div>
+			</div>
+			<!--//통합검색-->
+
+            <div id="menu_area">
+     			<p class="logo"><a href="/star/main.do"><img src="/images/star/comm/logo.png" alt="제주시 별빛누리공원"></a></p>
+                <div class="gnb_menu_area">
+                	<div>
+						<div class="etc_site" id="etc_site">
+							<a href="javascript:void(0)">주요 사이트</a>
+							<ul>
+								<li><a href="/" target="_blank" title="새창">제주시</a></li>
+								<li><a href="http://www.jeju.go.kr" target="_blank" title="새창">제주특별자치도</a></li>
+								<li><a href="http://www.seogwipo.go.kr" target="_blank" title="새창">서귀포시</a></li>
+								<li><a href="http://www.council.jeju.kr" target="_blank" title="새창">제주도의회</a></li>
+								<li><a href="http://audit.jeju.go.kr" target="_blank" title="새창">감사위원회</a></li>
+							</ul>
+						</div>
+						<div class="language" id="language">
+							<a href="javascript:void(0)">KOR</a>
+							<ul class="language_menu">
+								<li><a onclick="fn_csli_etgi_trans('kte');" href="#english" title="새창">English</a></li>
+	                            <li><a onclick="fn_csli_etgi_trans('ktj');" href="#japanese" title="새창">Japanese</a></li>
+	                            <li><a onclick="fn_csli_etgi_trans('ktc');" href="#chinese" title="새창">Chinese</a></li>
+							</ul>
+						</div>
+						<ul class="gnb_menu">
+							<li><a href="#" class="loginLink"><span class="icon">로그인</a></li>
+                                <li class="non_member"><a href="/nonMembersLogin.ac" onclick="javascript:fn_nonMembersLogin();return false;">비회원 로그인</a></li>
+                            </ul>
+					</div>
+                </div>
+
+                <nav id="lnb_menu">
+					<h2 class="hidden" id="main_menu">주메뉴</h2>
+					<ul>
+						<li class=""><a href="/star/use.do">이용안내</a>
+									<div class="menu_depth">
+										<div class="menu_depth_detail">
+											<ul>
+												<li><span><a href="/star/use/facility.do">주요시설</a></span></li>
+															<!--
+					                                    <ul><li>
+						                                        	<a href="/star/use/facility/1F.do">1층</a>
+						                                            	</li>
+						                                    <li>
+						                                        	<a href="/star/use/facility/2F.do">2층</a>
+						                                            	</li>
+						                                    <li>
+						                                        	<a href="/star/use/facility/3F.do">3층</a>
+						                                            	</li>
+						                                    </ul>
+					                                    -->
+													<li><span><a href="/star/use/feediscount.do">요금 및 할인</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													<li><span><a href="/star/use/opthour.do">운영시간 안내</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													<li><span><a href="/star/use/location.do">찾아오시는 길</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													</ul>
+										</div>
+									</div>
+								</li>
+							<li class=""><a href="/star/reserv.do">예약안내</a>
+									<div class="menu_depth">
+										<div class="menu_depth_detail">
+											<ul>
+												<li><span><a href="/star/reserv/rsvInfo2.do">예약 안내</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													<li><span><a href="/star/reserv/rsvgrpstat.do">단체 예약 현황</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													<li><span><a href="/star/reserv/receipt.do">현장체험학습 안내</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													<li><span><a href="/star/reserv/status.do">현장체험학습 현황</a></span></li>
+															<!--
+					                                    <ul><li>
+						                                        	<a href="/star/reserv/status/group.do">단체</a>
+						                                            	</li>
+						                                    <li>
+						                                        	<a href="/star/reserv/status/fieldStudy.do">현장체험학습의 날</a>
+						                                            	</li>
+						                                    </ul>
+					                                    -->
+													</ul>
+										</div>
+									</div>
+								</li>
+							<li class=""><a href="/star/event.do">행사 및 교육</a>
+									<div class="menu_depth">
+										<div class="menu_depth_detail">
+											<ul>
+												<li><span><a href="/star/intro/event.do">행사 및 교육안내</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													<li><span><a href="/star/intro/applway.do">신청방법</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													<li><span><a href="/star/intro/application.do">행사 및 교육신청</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													<li><span><a href="/star/intro/exprn_open.do">체험행사 사전예약</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													</ul>
+										</div>
+									</div>
+								</li>
+							<li class=""><a href="/star/community.do">커뮤니티</a>
+									<div class="menu_depth">
+										<div class="menu_depth_detail">
+											<ul>
+												<li><span><a href="/star/community/announce.do">공지사항</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													<li><span><a href="/star/community/qna.do">Q&A</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													<li><span><a href="/star/community/faq.do">FAQ</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													</ul>
+										</div>
+									</div>
+								</li>
+							<li class=""><a href="/star/info.do">제주별빛누리공원</a>
+									<div class="menu_depth">
+										<div class="menu_depth_detail">
+											<ul>
+												<li><span><a href="/star/info/character.do">CI/캐릭터 소개</a></span></li>
+															<!--
+					                                    <ul><li>
+						                                        	<a href="/star/info/character/ci.do">CI</a>
+						                                            	</li>
+						                                    <li>
+						                                        	<a href="/star/info/character/character.do">캐릭터</a>
+						                                            	</li>
+						                                    </ul>
+					                                    -->
+													<li><span><a href="/star/info/astroPhenomenon.do">천문현상 안내</a></span></li>
+															<!--
+					                                    
+					                                    -->
+													</ul>
+										</div>
+									</div>
+								</li>
+							</ul>
+				</nav>
+
+                <!--//주메뉴-->
+				<span class="menu_close"><a href="javascript:;"><img src="/images/star/btn/close_btn01.png" alt="주메뉴 닫기"></a></span>
+            </div>
+        </div>
+    </header>
+    <!--//Header 영역-->
+
+    <!-- 레이어 팝업 -->
+    <div class="popup-wrap">
+    	<div class="main-popup">
+            <div class="ct-body">
+            
+            	<img src="/storage/files/popup/1712286239524_72a6ba9047314e86966e6981a7b91b43.jpg" alt="국회의원 선거 정상운영 안내">
+				</div>
+            <div class="today-close">
+                <span class="not_open"><input type="checkbox" name="cookie364" id="cookie364"><label for="cookie364">오늘하루그만보기</label></span>
+                <a href="#" class="close">닫기</a>
+            </div>
+        </div>
+        </div>
+    <!-- //레이어 팝업 --><!--Contents 영역-->
+
+    <main id="main">
+        <section id="container_wrap">
+            <h2 class="sec-caption">Contents</h2>
+
+            <div class="content-box">
+				<div class="main-wrapper">
+					<section class="main-top-banner">
+				        <h2 class="sec-caption">메인 배너</h2>
+				        <div id="main_top_slider" class="swiper-container">
+				            <div id="main_top_arrow" class="slider-arrow-box">
+							    <div class="pagination-area">
+							        <div id="main_top_navi" class="navi-area swiper-pagination"></div>
+							        <button type="button" id="main_top_pause" class="pause"><img src="/images/star/main/banner/top/pause.png" alt="메인배너 일시정지"></button>
+							        <button type="button" id="main_top_play" class="play"><img src="/images/star/main/banner/top/play.png" alt="메인배너 재생"></button>
+							    </div>
+							    <div class="container">
+							        <button type="button" id="main_top_prev" class="prev">
+							            <img src="/images/star/main/banner/top/prev.png" alt="이전">
+							        </button>
+							        <button type="button" id="main_top_next" class="next">
+							            <img src="/images/star/main/banner/top/next.png" alt="다음">
+							        </button>
+							    </div>
+							</div>
+							<ul class="swiper-wrapper">
+
+				                <li class="swiper-slide">
+												<div class="pc">
+													<img src="/storage/files/banner/1580178625895_b1726bdae36b47e7a0100fc7f5210817.jpg" alt="제주별빛누리공원 계절별 메인이미지_겨울(사냥꾼자리)">
+														</div>
+												<div class="mw"><img src="/storage/files/banner/1580178866026_b3c27f3403104297b924eacaeedfc737.jpg" alt="제주별빛누리공원_계절별 메인이미지_겨울(사냥꾼자리)"></div>
+		                                                </li>
+                                        <li class="swiper-slide">
+												<div class="pc">
+													<img src="/storage/files/banner/1557898372287_c72fa55509e84b5493df233bbb690f11.jpg" alt="제주별빛누리공원_기본 메인이미지 _01">
+														</div>
+												<div class="mw"><img src="/storage/files/banner/1557898442433_f6e1d371dd574b3aabe92a044c26845b.jpg" alt="제주별빛누리공원_기본 메인이미지_01"></div>
+		                                                </li>
+                                        <li class="swiper-slide">
+												<div class="pc">
+													<img src="/storage/files/banner/1557898390755_d5f4007ec28d450593a074b89614da44.jpg" alt="제주별빛누리공원_기본 메인이미지_02">
+														</div>
+												<div class="mw"><img src="/storage/files/banner/1557898455741_00ec182f8a09404d8a0ff482f51a81f8.jpg" alt="제주별빛누리공원_기본 메인이미지_02"></div>
+		                                                </li>
+                                        </ul>
+
+				        </div>
+				    </section> <!--//main-top-banner-->
+
+				    <div class="main-item-wrapper">
+				    	<div class="container">
+				    		<section class="top-item-wrapper">
+				    			<div class="l-area">
+				    				<div class="title-area">
+					    				<h2 class="title">
+					    					<a href="/star/intro/application.do">
+											    <img src="/images/star/main/top/title-icon1.png" alt="" class="icon">
+											    <span class="inline">
+											        <span class="eng">EDUCATION</span>
+											        <span class="kor">교육신청</span>
+											    </span>
+										    </a>
+										</h2>
+									</div>
+									<div class="ct-wrap">
+										<ul class="edu-list">
+											<li><a href="/star/intro/application.do?mode=detail&edc_num=EDC0000093">
+													[행사]&nbsp;개원기념행사 별빛퀴즈 챌린지(초등5~6학년) 참가 신청</a></li>
+											<li><a href="/star/intro/application.do?mode=detail&edc_num=EDC0000092">
+													[행사]&nbsp;개원기념행사 별빛퀴즈 챌린지(초등3~4학년) 참가 신청</a></li>
+											<li><a href="/star/intro/application.do?mode=detail&edc_num=EDC0000090">
+													[교육]&nbsp;뻔(fun)한 수업(19:30 시작, 초등 4~6)</a></li>
+											<li><a href="/star/intro/application.do?mode=detail&edc_num=EDC0000089">
+													[교육]&nbsp;뻔(fun)한 수업(17:30 시작, 초등 4~6)</a></li>
+											<!-- <li><a href="">[정기교육] 가족과 함께하는 로봇만들기(1기)큐보1-1(초등1~2, 매주 목)</a></li>
+										    <li><a href="">[특별행사] 가족과 함께하는 로봇만들기(1기)큐보1-1(초등1~2, 매주 목)</a></li>
+										    <li><a href="">[방학특강] 가족과 함께하는 로봇만들기(1기)큐보1-1(초등1~2, 매주 목)</a></li>
+										    <li><a href="">[정기교육] 가족과 함께하는 로봇만들기(1기)큐보1-1(초등1~2, 매주 목)</a></li> -->
+										</ul>
+									</div> <!-- //ct-wrap -->
+									<div class="more-area">
+										<a href="/star/intro/application.do" class="more">
+											<img src="/images/star/main/top/more.png" alt="더보기">
+										</a>
+									</div>
+				    			</div> <!-- //l-area -->
+				    			<div class="c-area">
+				    				<div class="title-area">
+					    				<h2 class="title">
+										    <a href="javaScript:openDateInfo();">
+												<img src="/images/star/main/top/title-icon2.png" alt="" class="icon">
+												<span class="inline">
+													<span class="eng">DATE INFO</span>
+													<span class="kor">날짜정보</span>
+												</span>
+											</a>
+										</h2>
+									</div>
+									<div class="ct-wrap">
+										<ul class="date-list">
+											<li>
+												<strong><img src="/images/star/date/icon-01.png" alt="">양력</strong>
+												<span class="block">2024년 04월 05일</span>
+											</li>
+											<li>
+												<strong><img src="/images/star/date/moon/27.png" alt="">음력</strong>
+												<span class="block">2024년 02월 27일<span class="kor_date">
+														평</span>
+												</span>
+											</li>
+										</ul>
+										<ul class="time-list">
+											<li><strong><img src="/images/star/main/date/date-icon-03.png" alt="">일출 : </strong> <span>06:16</span></li>
+											<li><strong><img src="/images/star/main/date/date-icon-04.png" alt="">일몰 : </strong> <span>18:57</span></li>
+											<li><strong><img src="/images/star/main/date/date-icon-05.png" alt="">월출 : </strong> <span>04:09</span></li>
+											<li><strong><img src="/images/star/main/date/date-icon-06.png" alt="">월몰 : </strong> <span>14:54</span></li>
+										</ul>
+										<p class="memo text-red">음력 16일부터 3일까지는 달관측이 어려울 수 있습니다.</p>
+									</div> <!-- //ct-wrap -->
+									<div class="more-area">
+										<a href="javaScript:openDateInfo();" class="more">
+											<img src="/images/star/main/top/more.png" alt="더보기">
+										</a>
+									</div>
+				    			</div> <!-- //c-area -->
+				    			<div class="r-area">
+				    				<div class="title-area">
+					    				<h2 class="title">
+					    					<a href="javaScript:openStarMap('N');">
+											    <img src="/images/star/main/top/title-icon3.png" alt="" class="icon">
+											    <span class="inline">
+											        <span class="eng">CONSTELLATION</span>
+											        <span class="kor">별자리안내</span>
+											    </span>
+										    </a>
+										</h2>
+									</div>
+									<div class="ct-wrap">
+										<p class="text-area">
+											<span class="pc1200-block">선택한 날짜와 시간에 밤하늘에서 볼 수 있는</span>
+											<span class="pc1200-block">별자리를 검색하여 보여드립니다.</span>
+										</p>
+										<div class="select-area">
+											<select id="search_month" title="월 선택">
+												<option value="1">1월</option>
+												<option value="2">2월</option>
+												<option value="3">3월</option>
+												<option value="4">4월</option>
+												<option value="5">5월</option>
+												<option value="6">6월</option>
+												<option value="7">7월</option>
+												<option value="8">8월</option>
+												<option value="9">9월</option>
+												<option value="10">10월</option>
+												<option value="11">11월</option>
+												<option value="12">12월</option>
+												</select>
+											<select id="search_day" title="일 선택"></select>
+											<select id="search_hour" title="시 선택">
+												<option value="0">0시</option>
+												<option value="1">1시</option>
+												<option value="2">2시</option>
+												<option value="3">3시</option>
+												<option value="4">4시</option>
+												<option value="5">5시</option>
+												<option value="6">6시</option>
+												<option value="7">7시</option>
+												<option value="8">8시</option>
+												<option value="9">9시</option>
+												<option value="10">10시</option>
+												<option value="11">11시</option>
+												<option value="12">12시</option>
+												<option value="13">13시</option>
+												<option value="14">14시</option>
+												<option value="15">15시</option>
+												<option value="16">16시</option>
+												<option value="17">17시</option>
+												<option value="18">18시</option>
+												<option value="19">19시</option>
+												<option value="20">20시</option>
+												<option value="21">21시</option>
+												<option value="22">22시</option>
+												<option value="23">23시</option>
+												</select>
+										</div> <!-- //select-area -->
+										<div class="btn-area">
+											<button type="button" id="btn_search" class="btn black" onclick="javaScript:openStarMap('Y');">
+												<img src="/images/star/main/top/search.png" alt="">
+												검색
+											</button>
+										</div> <!-- //btn-area -->
+									</div> <!-- //ct-wrap -->
+									<div class="more-area">
+										<a href="javaScript:openStarMap('N');" class="more">
+											<img src="/images/star/main/top/more.png" alt="더보기">
+										</a>
+									</div>
+				    			</div> <!-- //r-area -->
+				    		</section> <!-- //top-item-wrapper -->
+
+					    	<section class="news-wrapper">
+					    		<div class="item-padding">
+					    			<div class="item-line">
+					    				<div class="area-wrapper">
+									    	<div class="l-area">
+									    		<div class="notice-wrapper">
+											    	<h2 class="main-titleL1">
+											    		<img src="/images/star/main/notice/title-icon.png" alt="" class="icon">
+											    		<span class="inline">
+											    			<span class="eng">NOTICE</span>
+											    			<span class="kor">공지사항</span>
+											    		</span>
+											    		<a href="/star/community/announce.do" class="more">
+											    			<img src="/images/star/main/more.png" alt="더보기">
+											    		</a>
+											    	</h2>
+											    	<ul class="main-notice-list">
+													    <li>
+														        <a href="/star/community/announce.do?notice_id=e644156fa9e24b9097dbbd1076dbe886">
+														        	2024년 제주별빛누리공원 체험교육 프로그램 세부과정(주말여가형) 안내</a>
+														        <span class="date">2024-04-04</span>
+														    </li>
+											    		<li>
+														        <a href="/star/community/announce.do?notice_id=68b0b42050704c2b96fdc541211cc8a3">
+														        	2024년 제주별빛누리공원 체험교육 프로그램 세부과정(천체테마형) 안내</a>
+														        <span class="date">2024-04-04</span>
+														    </li>
+											    		<li>
+														        <a href="/star/community/announce.do?notice_id=bba32412ed93447aae51b12c3d370579">
+														        	2024년 제주별빛누리공원 체험교육 프로그램 안내</a>
+														        <span class="date">2024-03-31</span>
+														    </li>
+											    		<li>
+														        <a href="/star/community/announce.do?notice_id=256451a7c14a4efc8de90f36d0af6d7f">
+														        	반짝이는 천문학 3월~5월 체험 교구 안내</a>
+														        <span class="date">2024-03-03</span>
+														    </li>
+											    		<li>
+														        <a href="/star/community/announce.do?notice_id=de9f1f72ab3f48a4bbf41e1b1c7508c9">
+														        	제주별빛누리공원 체험교육 프로그램 수시 제안 안내</a>
+														        <span class="date">2023-12-30</span>
+														    </li>
+											    		</ul>
+										    	</div> <!-- //notice-wrapper -->
+									    	</div> <!-- //l-area -->
+									    	<div class="r-area">
+									    		<div class="item-area">
+										    		<div class="item1">
+										    			<h2 class="main-titleL1">
+												    		<img src="/images/star/main/notice/title-icon2.png" alt="" class="icon">
+												    		<span class="inline">
+												    			<span class="eng">RESERVATION</span>
+												    			<span class="kor">단체예약</span>
+												    		</span>
+												    		<a href="/star/reserv/rsvInfo2.do" class="more">
+												    			<img src="/images/star/main/more.png" alt="더보기">
+												    		</a>
+												    	</h2>
+												    	<div class="icon-area">
+												    		<img src="/images/star/main/notice/character-01.png" alt="">
+												    	</div>
+												    	<div class="btn-area">
+												    		<a href="/star/reserv/rsvInfo2.do">
+												    			<img src="/images/star/main/notice/btn-icon-01.png" alt="">
+												    			<span>단체예약 안내</span>
+												    		</a>
+												    		<a href="/star/reserv/rsvgrpstat.do">
+												    			<img src="/images/star/main/notice/btn-icon-01.png" alt="">
+												    			<span>단체예약 현황</span>
+												    		</a>
+												    		</div>
+										    		</div>
+													<div class="item2">
+										    			<h2 class="main-titleL1">
+												    		<img src="/images/star/main/notice/title-icon3.png" alt="" class="icon">
+												    		<span class="inline">
+												    			<span class="eng">EXPERIENTIAL LEARNING</span>
+												    			<span class="kor">현장체험학습의 날</span>
+												    		</span>
+												    		<a href="/star/reserv/receipt.do" class="more">
+												    			<img src="/images/star/main/more.png" alt="더보기">
+												    		</a>
+												    	</h2>
+												    	<div class="icon-area">
+												    		<img src="/images/star/main/notice/character-02.png" alt="">
+												    	</div>
+												    	<div class="btn-area">
+												    		<a href="/star/reserv/receipt.do">
+												    			<img src="/images/star/main/notice/btn-icon-01.png" alt="">
+												    			<span>현장체험학습 안내</span>
+												    		</a>
+												    		<a href="/star/reserv/status/fieldStudy.do">
+												    			<img src="/images/star/main/notice/btn-icon-02.png" alt="">
+												    			<span>현장체험학습 현황</span>
+												    		</a>
+												    	</div>
+										    		</div>
+									    		</div> <!-- //item-area -->
+									    	</div> <!-- //r-area -->
+								    	</div> <!-- //area-wrapper -->
+							    	</div> <!-- //item-line -->
+						    	</div> <!-- //item-padding -->
+					    	</section> <!-- //news-wrapper -->
+
+					    	<section class="foot-item-wrapper">
+							    <div class="item-padding">
+							        <div class="item-line">
+							        	<div class="floating-area">
+								        	<div class="area-wrap">
+									        	<div class="info-wrap">
+									        		<h2 class="main-titleL1">
+										                <img src="/images/star/main/foot/info/title-icon.png" alt="" class="icon">
+										                <span class="inline">
+										                    <span class="eng">OPERATING TIME</span>
+										                    <span class="kor">운영시간 안내</span>
+										                </span>
+										                <a href="/star/use/opthour.do" class="more">
+										                    <img src="/images/star/main/more.png" alt="더보기">
+										                </a>
+										            </h2>
+										            <ul class="time-info-list">
+										            	<li>
+										            		<div class="l-area">
+										            			<img src="/images/star/main/foot/info/icon-01.png" alt="">
+										            			<strong>하절기</strong>
+										            		</div>
+										            		<div class="r-area">
+										            			<p>04월 ~ 09월</p>
+										            			<p>15:00 ~ 23:00</p>
+										            		</div>
+										            	</li>
+										            	<li>
+										            		<div class="l-area">
+										            			<img src="/images/star/main/foot/info/icon-02.png" alt="">
+										            			<strong>동절기</strong>
+										            		</div>
+										            		<div class="r-area">
+										            			<p>10월 ~ 03월</p>
+										            			<p>14:00 ~ 22:00</p>
+										            		</div>
+										            	</li>
+										            	</ul>
+									        	</div>
+									        	<div class="location-wrap">
+									        		<h2 class="main-titleL1">
+										                <img src="/images/star/main/foot/location/title-icon.png" alt="" class="icon">
+										                <span class="inline">
+										                    <span class="eng">LOCATION</span>
+										                    <span class="kor">찾아오시는길</span>
+										                </span>
+										                <a href="/star/use/location.do" class="more">
+										                    <img src="/images/star/main/more.png" alt="더보기">
+										                </a>
+										            </h2>
+										            <div class="icon-area">
+													    <img src="/images/star/main/foot/location/character.png" alt="">
+													</div>
+													<div class="btn-area">
+											    		<a href="/star/use/location.do#bus441">
+											    			<img src="/images/star/main/foot/location/btn-icon.png" alt="">
+											    			<span>버스시간표 <strong>441</strong></span>
+											    		</a>
+											    		<a href="/star/use/location.do#bus442">
+											    			<img src="/images/star/main/foot/location/btn-icon.png" alt="">
+											    			<span>버스시간표 <strong>442</strong></span>
+											    		</a>
+											    	</div>
+									        	</div>
+								        	</div>
+								        	<div class="quick-wrap">
+								        		<ul>
+								        			<li>
+								        				<a href="/star/use/feediscount.do">
+								        					<img src="/images/star/main/foot/quick/01.png" alt="">
+								        					<span>요금 및 할인</span>
+								        				</a>
+								        			</li>
+								        			<li>
+								        				<a href="/star/member.do">
+								        					<img src="/images/star/main/foot/quick/02.png" alt="">
+								        					<span>별빛회원</span>
+								        				</a>
+								        			</li>
+								        			<li>
+								        				<a href="/star/community/qna.do">
+								        					<img src="/images/star/main/foot/quick/03.png" alt="">
+								        					<span>Q&amp;A</span>
+								        				</a>
+								        			</li>
+								        			<li>
+								        				<a href="/field/tour.do" target="_blank" title="새창">
+								        					<img src="/images/star/main/foot/quick/07.png" alt="">
+								        					<span>제주도 관광정보</span>
+								        				</a>
+								        			</li>
+								        			</ul>
+								        	</div>
+							        	</div> <!-- //floating-area -->
+							        </div> <!-- //item-line -->
+							    </div> <!-- //item-padding -->
+							</section> <!-- //foot-item-wrapper -->
+				    	</div>
+				    </div> <!-- //main-item-wrapper -->
+
+				    <section class="public-banner">
+				        <h2 class="sec-caption">관련기관 배너</h2>
+				        <div class="container">
+				            <div id="public_arrow" class="slider-arrow-box">
+				                <button type="button" id="public_pause" class="pause"><img src="/images/star/main/banner/public/pause.png" alt="관련기관배너 일시정지"></button>
+				                <button type="button" id="public_play" class="play"><img src="/images/star/main/banner/public/play.png" alt="관련기관배너 재생"></button>
+				                <button type="button" id="public_prev" class="prev"><img src="/images/star/main/banner/public/prev.png" alt="관련기관배너 이전"></button>
+				                <button type="button" id="public_next" class="next"><img src="/images/star/main/banner/public/next.png" alt="관련기관배너 다음"></button>
+				            </div>
+				            <div id="public_banner" class="swiper-container">
+				                <ul class="swiper-wrapper">
+				                	<li class="swiper-slide">
+	                                        		<a href="http://www.jeju.go.kr/" target="_blank" title="새창">
+	                                                   <img src="/storage/files/banner/1547615965328_7653e5e7caae48f4a54abe2ed52429dd.jpg" alt="">
+	                                                 </a>
+	                                        	</li>
+	                                        <li class="swiper-slide">
+	                                        		<a href="https://www.kofac.re.kr/" target="_blank" title="새창">
+	                                                   <img src="/storage/files/banner/1547615995695_5800dc2633344b15993017599521d576.jpg" alt="">
+	                                                 </a>
+	                                        	</li>
+	                                        <li class="swiper-slide">
+	                                        		<a href="http://astronomy.seogwipo.go.kr/" target="_blank" title="새창">
+	                                                   <img src="/storage/files/banner/1547616024016_7edd19cc14fb41d1a51c5766e4cac579.jpg" alt="">
+	                                                 </a>
+	                                        	</li>
+	                                        <li class="swiper-slide">
+	                                        		<a href="http://www.kasi.re.kr/" target="_blank" title="새창">
+	                                                   <img src="/storage/files/banner/1547616049838_be8c63fba3b74bb28fe8fdc967976450.jpg" alt="">
+	                                                 </a>
+	                                        	</li>
+	                                        <li class="swiper-slide">
+	                                        		<a href="http://www.scienceall.com/" target="_blank" title="새창">
+	                                                   <img src="/storage/files/banner/1547616075832_cee1980a540d4315945b9a4979825190.jpg" alt="">
+	                                                 </a>
+	                                        	</li>
+	                                        <li class="swiper-slide">
+	                                        		<a href="http://www.sciencetimes.co.kr/" target="_blank" title="새창">
+	                                                   <img src="/storage/files/banner/1547616095929_176abbbae7d04636a9ff25341cf80269.jpg" alt="">
+	                                                 </a>
+	                                        	</li>
+	                                        </ul>
+				            </div>
+				        </div>
+				    </section> <!--//public-banner-->
+				</div>
+            </div> <!-- //content-box -->
+
+            <!--Top 버튼-->
+            <div class="container">
+                <aside class="right-zone">
+                    <div class="go-top">
+                        <a href="javascript:void(0)" onclick="go_topBtn()"><img src="/images/qolup/btn/top_btn.png" alt="상단으로 가기"></a>
+                    </div>
+                </aside>
+            </div>
+            <!--//Top 버튼-->
+        </section>
+    </main>
+    <!--//Contents 영역-->
+    <script type="text/javascript">
+	
+	function openStarMap(type){
+		var url = '/star/map.ac';
+		if(type == "Y"){
+			var search_month = $("#search_month").val();
+			var search_day = $("#search_day").val();
+			var search_hour = $("#search_hour").val();
+			url = url + '?search_month='+search_month+'&search_day='+search_day+'&search_hour='+search_hour;
+		}
+		window.open( url, '별자리정보', 'width=1200, height=820, status=no, scrollbars=no');
+	}
+	
+	function openDateInfo(){
+		window.open('/star/dateInfo.ac', '날짜정보', 'width=360, height=500, status=no, scrollbars=no');
+	}
+
+</script>
+
+
+
+	<!-- Quick Menu -->
+    <aside class="snb-quick-menu">
+        <ul>
+            <li>
+                <a href="/star/member.do">
+                    <img src="/images/star/comm/quick/menu-01.jpg" alt="별빛회원">
+                </a>
+            </li>
+            <li>
+                <a href="javaScript:openDateInfo();">
+                    <img src="/images/star/comm/quick/menu-02.jpg" alt="날짜정보">
+                </a>
+            </li>
+            <li>
+                <a href="javaScript:openStarMap('N');">
+                    <img src="/images/star/comm/quick/menu-03.jpg" alt="별자리정보">
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- //Quick Menu -->
+
+    <!--Footer 영역-->
+    <footer id="footer_wrap">		
+		<div class="footer">
+			<div class="footer_left">
+				<ul class="footer_link">
+					<li><a href="/guide/privacy/terms.do" target="_blank" title="새창열림">이용약관</a></li>
+					<li><a href="/guide/privacy/privacy.do" target="_blank" title="새창열림">개인정보취급방침</a></li>
+					<li><a href="/guide/copyrights.do" target="_blank" title="새창열림">저작권보호정책</a></li>
+				</ul>
+				<div class="footer_info">
+					<address>(63242) 제주특별자치도 제주시 선돌목동길 60 (오등동), 대표전화：064-728-8900, 60, Seondolmokdong-gil, Jeju-si, Jeju. Republic of Korea 63242</address>
+					<p>Copyright Jeju Starlight World Park and Planetarium. All rights reserved.</p>
+					<p>제주별빛누리공원 홈페이지는 운영체제(OS)：Windows 7이상, 인터넷 브라우저：IE 9이상, 파이어 폭스, 크롬, 사파리에 최적화 되어있습니다.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+    <!--//Footer 영역-->
+</div>
+</body>
+</html>
